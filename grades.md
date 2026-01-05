@@ -5,7 +5,7 @@ headerImg: beach.jpg
 
 ### Worksheets (10%)
 
-We will have an "in class" worksheetshanded out in each
+We will have an "in class" worksheets handed out in each
 lecture and which is to be turned in at the end of the lecture.
 Turn in 75% of the worksheets to get full credit.
 Responses will be graded on participation (not correctness).

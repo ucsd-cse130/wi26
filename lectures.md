@@ -8,6 +8,9 @@ The live-edited code for each lecture can be found [here][code].
 | **Date** | **Topic**     | **Notes**    |
 | :------- | :------------ | :----------- |
 | 1/6      | Hello, World! | [html][lec0] |
+| 1/27     | Midterm I     |              |
+| 2/20     | Midterm II    |              |
+| 3/19     | Final Exam    |              |
 
 <-!
 
