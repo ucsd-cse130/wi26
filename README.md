@@ -85,7 +85,7 @@ match "lectures/*"    $ crunchWithCtxCustom "lecture" postCtx
 - [*] calendar.md
 - [*] assignments.md
 - [*] piazza
-- [ ] canvas
+- [*] canvas
 - [*] github registration form
 - [*] 00-lambda
 

@@ -25,7 +25,7 @@ and practicing your skills by experimentation.
 
 1. We will not be podcasting lectures.
 2. We will have worksheets to be filled in and submitted in every lecture.
-3. We will have a _no-screens_ policy: students are required to keep their devices off during lectures.
+3. We have a _no-screens_ policy: students must keep their devices off during lectures.
 4. We require all exams be taken on the [announced dates and times](https://ucsd-cse130.github.io/wi26/contact.html#exams)
 
 ## Integrity of Scholarship
