@@ -64,7 +64,7 @@ postCtx =
 siteCtx :: Context String
 siteCtx =
     constField "cssUrl"             "https://ucsd-cse230.github.io/sp20"      `mappend`
-    constField "baseUrl"            "https://ucsd-cse130.github.io/wi25"      `mappend`
+    constField "baseUrl"            "https://ucsd-cse130.github.io/wi26"      `mappend`
     constField "site_name"          "cse130"                                  `mappend`
     constField "site_description"   "UCSD CSE 130"                            `mappend`
     constField "site_username"      "Ranjit Jhala"                            `mappend`
@@ -72,8 +72,9 @@ siteCtx =
     constField "github_username"    "ranjitjhala"                             `mappend`
     constField "google_username"    "rjhala@ucsd.edu"                         `mappend`
     constField "google_userid"      "u/0/104385825850161331469"               `mappend`
-    constField "piazza_classid"     "class/m5la9aqfdyl3db"                    `mappend`
-    constField "canvasUrl"          "https://canvas.ucsd.edu/courses/62099/assignments/syllabus"   `mappend`
+    constField "piazza_classid"     "class/mk1dsic8wex19w"                    `mappend`
+    constField "canvasUrl"          "https://canvas.ucsd.edu/courses/71548"   `mappend`
+                                  --  "https://canvas.ucsd.edu/courses/62099/assignments/syllabus"   `mappend`
     defaultContext
 
 tops =
