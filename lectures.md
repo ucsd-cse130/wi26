@@ -9,7 +9,7 @@ The live-edited code for each lecture can be found [here][code].
 | :------- | :------------ | :----------- |
 | 1/6      | Hello, World! | [html][lec0] |
 | 1/27     | Midterm I     |              |
-| 2/20     | Midterm II    |              |
+| 2/19     | Midterm II    |              |
 | 3/19     | Final Exam    |              |
 
 <-!
@@ -18,14 +18,12 @@ The live-edited code for each lecture can be found [here][code].
 | 1/14 | contd. | [handout][wk2a]
 | 1/16 | contd. | [handout][wk2b]
 | 1/23 | A crash course in Haskell | [html][lec2] [pdf][pdf2] [handout][wk3b] |
-| 1/28 | Midterm I | |
 | 1/30 | contd. | [handout][wk4b] |
 | 2/4 | Datatypes & Recursion | [html][lec3] [pdf][pdf3] [handout][wk5a] |
 | 2/6 | contd. | [handout][wk5b] |
 | 2/11 | Higher Order Functions | [html][lec4] [handout][wk6a] |
 | 2/13 | contd. | [handout][wk6b] |
 | 2/18 | Environments & Closures | [html][lec5] |
-| 2/20 | Midterm II | |
 | 2/25 | contd. | [handout][wk8a] |
 | 2/27 | contd. | [handout][wk8b] |
 | 3/4 | Lexing and Parsing | [html][lec6] [pdf][pdf6] [code][arith] [handout][wk9a] |

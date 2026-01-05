@@ -1,7 +1,7 @@
 ---
 title: Hello, world!
 headerImg: sea.jpg
-date: 2025-01-05
+date: 2026-01-05
 ---
 
 ## A Programming Language
@@ -264,8 +264,8 @@ etc.
 
 ### Tutors
 
-- [Alexander Zhang](mailto:alz004@ucsd.edu)
-- [Ritoban Roy-Chowdhury](mailto:rroychowdhury@ucsd.edu)
+- [Yuehua Xie](mailto:yux070@ucsd.edu)
+- [Alain Zhang](mailto:atz001@ucsd.edu)
 
 <br>
 <br>
@@ -288,7 +288,7 @@ etc.
 
 **Logic Programming**
 
-- Prolog (~1 weekx, maybe, but doubtful!)
+- Prolog (~1 week, maybe, but doubtful!)
 
 <br>
 <br>
@@ -356,13 +356,13 @@ sort (x:xs) = sort ls ++ [x] ++ sort rs
 
 ## Course Logistics
 
-[webpage](https://ucsd-cse130.github.io/wi25)
+[webpage](https://ucsd-cse130.github.io/wi26)
 
 - Calendar
 - Lecture notes
 - Programming assignments
 
-[piazza](https://piazza.com/class/m5la9aqfdyl3db)
+[piazza](https://piazza.com/class/mk1dsic8wex19w?)
 
 - Go-to place if you have a question or need help
 
@@ -373,11 +373,28 @@ sort (x:xs) = sort ls ++ [x] ++ sort rs
 <br>
 <br>
 
+## Policies
+
+- No podcasting.
+
+- No screens (phones, laptops) in lecture.
+
+- Yes attendance & class participation (worksheets).
+
+- Yes exams must be done at allotted time and location.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ## Grading
 
-- 10% Class participation (_handouts_)
+- 10% Class participation (_worksheets_)
 - 30% Programming Assignments (_codespaces_)
-- 30% Two Midterm **Tu 1/28** and **Thu 2/20** (_in lecture_)
+- 30% Two Midterm **Tu 1/27** and **Thu 2/19** (_in lecture_)
 - 30% Final **Tu 3/18**
 - 05% Piazza Extra Credit (_top 5_ best participants)
 
@@ -388,12 +405,33 @@ sort (x:xs) = sort ls ++ [x] ++ sort rs
 <br>
 <br>
 
-## Assignments
+## Class participation (10%)
+
+- "In class" worksheets handed out each lecture
+
+- Handed in at the end of the lecture
+
+- Turn in 75% of the worksheets to get full credit
+
+- Responses will be graded on participation (not correctness)
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## Assignments (30%)
 
 **6 programming assignments**
 
 - Released [online](assignments.html)
+
 - At least a week before due date
+
 - Via github classroom + codespaces
 
 **Six late days**
@@ -414,7 +452,7 @@ sort (x:xs) = sort ls ++ [x] ++ sort rs
 <br>
 <br>
 
-## Exams
+## Exams (15 + 15 + 30%)
 
 - Must be done at allotted time and location
 
@@ -487,7 +525,7 @@ Not Optional
 
 ### Discussion section
 
-- Friday 3:00-3:50pm (PCYNH 106)
+- Th 6:00-6:50pm (CENTER 212)
 
 ### Office hours
 
@@ -537,29 +575,6 @@ Students are required to present their AFA letters to Faculty
 (please make arrangements to contact me privately) and to the
 CSE OSD Liaison [Christina Rontell](https://cse.ucsd.edu/people/administrative-staff/christina-rontell)
 in advance so that accommodations may be arranged.
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-## Diversity and Inclusion
-
-### Goal
-
-- Create a diverse and inclusive learning environment
-- Where all students feel comfortable and can thrive.
-- _Please let us know_ if there is a way to make you feel more included
-- In person, via email/discussion boar
-
-### Expectations
-
-- Students will honor and respect your classmates!
-- Abide by the UCSD [Principles of Community](https://ucsd.edu/about/principles.html)
-- Understand that others’ backgrounds, perspectives and experiences will be different
-- Help build an environment where everyone is respected and comfortable.
 
 <br>
 <br>
