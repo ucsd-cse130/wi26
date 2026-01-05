@@ -3,12 +3,12 @@ title: Grading
 headerImg: beach.jpg
 ---
 
-### Class Participation (10%)
+### Worksheets (10%)
 
-We will have an "in class" questionnaire handed out in each
+We will have an "in class" worksheetshanded out in each
 lecture and which is to be turned in at the end of the lecture.
-Respond to 75% of the questionnaires to get full credit.
-Responses will not be graded on correctness but only on completion.
+Turn in 75% of the worksheets to get full credit.
+Responses will be graded on participation (not correctness).
 
 ### Homework Assignments (30%)
 
@@ -19,7 +19,7 @@ assigned every one or two weeks.
 
 There will be **two** closed-book, pencil-and-paper midterm exams,
 each worth 15% of the grade (each) -- to be held during lecture on
-on **Tu 1/28** and **Th 2/20**.
+on **Tu 1/27** and **Th 2/20**.
 
 **Cheat Sheet** You may bring a "cheat sheet" comprising a single
 letter-sized sheet of paper (you can use both sides if you wish.)
@@ -27,7 +27,7 @@ letter-sized sheet of paper (you can use both sides if you wish.)
 ### Final (30%)
 
 The closed-book, pencil-and-paper final exam will be held on
-**Tu 3/18** from 8:00--11:00am.
+**Tu 3/19** from 11:30a--2:30p.
 
 ### Piazza (+5%)
 

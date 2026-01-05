@@ -3,18 +3,26 @@ title: Contact
 headerImg: world-map.jpg
 ---
 
-## Course Details
+## Course Communication
 
-- **Lectures:** Tu,Th 9:30-10:50p at Pepper Canyon 106
-- **Section:** Fr 3:00-3:50p at Pepper Canyon 106
-- **Announcements:** Posted on Piazza. Please check often!
+**Announcements** will be posted on Piazza. Please check often!
+
+## Lectures
+
+- **Lectures:** Tu,Th 11:00a-12:20p at CENTER 109
+- **Section:** Th 6:00-6:50p at CENTER 212
+
+## Exams
+
+- **Midterm 1:** Tu _01/27/2026_, 11:00a-12:20p at CENTER 109
+- **Midterm 2:** Th _02/20/2026_, 11:00a-12:20p at CENTER 109
+- **Final Exam:** Th _03/19/2026_, 11:30a-2:20p at CENTER 109
 
 ## Staff and Office Hours
 
-|              | **Staff**                                              | **Office Hours**           |
-| :----------- | :----------------------------------------------------- | :------------------------- |
-| _Instructor_ | [Ranjit Jhala](https://ranjitjhala.github.io)          | Tu, Th 2:00-3:00pm, (3110) |
-| _TA_         | [Cole Kurashige](mailto:ckurashige@ucsd.edu)           | M 1:00-2:00 (3217)         |
-| _Tutor_      | [Alexander Zhang](mailto:alz004@ucsd.edu)              | M 2:00-3:00pm (B250A), W 4:00-5:00pm (B270A) |
-| _Tutor_      | [Ritoban Roy-Chowdhury](mailto:rroychowdhury@ucsd.edu) | W 10:00-11:00 (B275), F 10:00 - 11:00 (B240A) |
-
+|              | **Staff**                                     | **Office Hours**            |
+| :----------- | :-------------------------------------------- | :-------------------------- |
+| _Instructor_ | [Ranjit Jhala](https://ranjitjhala.github.io) | Tu, Th 12:30-1:30pm, (3110) |
+| _TA_         | [Cole Kurashige](mailto:ckurashige@ucsd.edu)  | TBA                         |
+| _Tutor_      | [Yuehua Xie](mailto:yux070@ucsd.edu)          | TBA                         |
+| _Tutor_      | [Alain Zhang](mailto:atz001@ucsd.edu)         | TBA                         |

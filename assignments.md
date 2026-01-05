@@ -15,20 +15,20 @@ but no more than _four late days_ per assignment.
 
 ## Assignments
 
-Fill in [this form](https://forms.gle/bVR7pfs5ajexNMr67) by **Fri 1/17**
+Fill in [this form](https://forms.gle/ZS5WYcreHKFZjT8Z7) by **Fri 1/16**
 so we can link your github and UCSD IDs. Otherwise **you will get `0`**
 for the programming assignments!
 
 | **HW-link**    | **Name**        | **Deadline (23:59:59pm)** |
 | :------------- | :-------------- | :------------------------ |
 | [HW #id][hwid] | Github ID       | Fri 1/17                  |
-| [HW #0][hw0]   | Lambda Calculus | Wed 1/22                  |
-| [HW #1][hw1]   | Intro to Haskell | Wed 2/5                  |
+| [HW #0][hw0]   | Lambda Calculus | Wed 1/21                  |
+
+<!-- | [HW #1][hw1]   | Intro to Haskell | Wed 2/5                  |
 | [HW #2][hw2]   | Data types       | Fri 2/14                 |
 | [HW #3][hw3]   | Higher-order Functions | Fri 2/22           |
 | [HW #4][hw4]   | Interpreters     | Fri 3/7                  |
-| [HW #5][hw5]   | Classes          | Fri 3/21                 |
-
+| [HW #5][hw5]   | Classes          | Fri 3/21                 | -->
 
 ## Sample Exam Questions
 
@@ -51,10 +51,12 @@ for a comparison between the two languages.
   [Final Fa 11](/static/raw/final-fa11.pdf),
   [Final Wi 11](/static/raw/final-wi11.pdf).
 
-[hwid]: https://forms.gle/bVR7pfs5ajexNMr67
-[hw0]: https://classroom.github.com/a/Swy1OtKG
+[hwid]: https://forms.gle/ZS5WYcreHKFZjT8Z7
+[hw0]: https://classroom.github.com/a/fVADzDND
+
+<!--
 [hw1]: https://classroom.github.com/a/0ek-gbnL
 [hw2]: https://classroom.github.com/a/hw9LUEuc
 [hw3]: https://classroom.github.com/a/vtmNbvNf
 [hw4]: https://classroom.github.com/a/xeUtlYau
-[hw5]: https://classroom.github.com/a/NFd-YU8c
+[hw5]: https://classroom.github.com/a/NFd-YU8c -->

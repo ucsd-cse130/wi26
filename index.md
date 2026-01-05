@@ -21,6 +21,13 @@ As with spoken languages, these are best absorbed
 by immersing yourself in the different environments
 and practicing your skills by experimentation.
 
+## Policies
+
+1. We will not be podcasting lectures.
+2. We will have worksheets to be filled in and submitted in every lecture.
+3. We will have a _no-screens_ policy: students are required to keep their devices off during lectures.
+4. We require all exams be taken on the [announced dates and times](https://ucsd-cse130.github.io/wi26/contact.html#exams)
+
 ## Integrity of Scholarship
 
 University rules on integrity of scholarship will be strictly enforced. By
@@ -37,17 +44,17 @@ discussions with your classmates regarding the assignments,
 but specific details of a solution, including the solution
 itself, **must always be your own work**.
 
-You may use Copilot/ChatGPT etc. for your programming assignments,
+You may use Copilot/ChatGPT/Claude etc. for your programming assignments,
 but do so at your own risk: the midterm(s) and final examinations
-will be *heavily* based on the assignments, and doing well in them
-will require a thorough understanding the solutions to the programming
-assignments.  These exams will be entirely analog: no tools other than
+will be _heavily_ based on the assignments, and doing well in them
+will **require a thorough understanding** of the solutions to the programming
+assignments. These exams will be entirely analog: no tools other than
 your brain and a writing instrument are to be used.
 
 Incidents which violate the University's rules on integrity of scholarship
-will be taken seriously.  In addition to **receiving a zero (0)** on the
+will be taken seriously. In addition to **receiving a zero (0)** on the
 assignment/exam in question, students may also face other penalties,
-up to and including, expulsion from the University.  Should you have
+up to and including, expulsion from the University. Should you have
 any doubts about the moral and/or ethical implications of an activity
 regarding the course, please see the instructor.
 
