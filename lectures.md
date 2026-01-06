@@ -5,14 +5,15 @@ headerImg: books.jpg
 
 The live-edited code for each lecture can be found [here][code].
 
-| **Date** | **Topic**     | **Notes**    |
-| :------- | :------------ | :----------- |
-| 1/6      | Hello, World! | [html][lec0] |
-| 1/27     | Midterm I     |              |
-| 2/19     | Midterm II    |              |
-| 3/19     | Final Exam    |              |
+| **Date** | **Topic**           | **Notes**    |
+| :------- | :------------------ | :----------- |
+| 1/6      | Hello, World!       | [html][lec0] |
+|          | The Lambda Calculus | [html][lec1] |
+| 1/27     | Midterm I           |              |
+| 2/19     | Midterm II          |              |
+| 3/19     | Final Exam          |              |
 
-<-!
+<!--
 
 | 1/9 | The Lambda Calculus | [html][lec1] [pdf][pdf1] |
 | 1/14 | contd. | [handout][wk2a]
@@ -29,9 +30,7 @@ The live-edited code for each lecture can be found [here][code].
 | 3/4 | Lexing and Parsing | [html][lec6] [pdf][pdf6] [code][arith] [handout][wk9a] |
 | 3/6 | Type Classes | [html][lec7] [handout][wk9b] |
 | 3/11 | Functors & Monads | [html][lec8] [handout][wk10a] |
-| 3/13 | Hello, world! (finally!) | [html][lec9] [handout][wk10b] |
-
--->
+| 3/13 | Hello, world! (finally!) | [html][lec9] [handout][wk10b] | -->
 
 ## Discussions
 
