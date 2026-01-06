@@ -241,6 +241,7 @@ New languages being designed in industry as we speak:
 - TypeScript @ Microsoft
 - Swift @ Apple
 - WebAssembly @ Google + Mozilla + Microsoft
+- Verse @ Epic Games
 
 Buried in every large system is a (domain-specific) language
 
@@ -250,6 +251,19 @@ Buried in every large system is a (domain-specific) language
 - Latex, shell scripts, makefiles, ...
 
 If you work on a large system, you **will** design a new PL!
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## Goal: How to Design new Languages
+
+New languages like `Verse` @ Epic Games
+
+![](/static/img/fortnite-verse.png){#fig:types .align-center width=80%}
 
 <br>
 <br>
