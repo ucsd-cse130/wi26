@@ -363,6 +363,46 @@ How do I apply a function to two arguments?
 <br>
 <br>
 
+## Lambda Calculus --> JavaScript
+
+**Example 1**
+
+`\x -> x`
+
+is
+
+```javascript
+function(x) { return x; }
+```
+
+**Example 2**
+
+`\x -> (\y -> y)`
+
+is
+
+```javascript
+function(x) {
+  return function(y) {
+	return y;
+  }
+}
+```
+
+**Example 3**
+
+`(\f -> f (\x -> x))`
+
+is
+
+```javascript
+function(f) {
+  return f(function(x) {
+	return x;
+  });
+}
+```
+
 ## Syntactic Sugar
 
 <br>
@@ -1716,7 +1756,6 @@ let SND  = \p -> p FALSE  -- call w/ FALSE, get second value
 How can we implement a record that contains **three** values?
 
 ELSA: https://elsa.goto.ucsd.edu/index.html
-
 
 [Click here to try this exercise](https://elsa.goto.ucsd.edu/index.html#?demo=permalink%2F1585434814_24436.lc)
 
