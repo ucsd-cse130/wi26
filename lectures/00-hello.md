@@ -132,15 +132,28 @@ But good luck writing
 <br>
 <br>
 
-## Learning Goals for CSE 230
+## How to ensure _"if it compiles, it is ~correct"_?
 
-**Abstraction:** Intellectual and Algorithmic tools for reasoning about program behavior
+![](/static/img/dijkstra.jpg){#fig:types .align-center width=60%}
 
-- How to specify what a program **does**?
+> The virtue of formal texts is that their manipulations, in order to be legitimate, **need to satisfy only a few simple rules;** they are, when you come to think of it, an amazingly effective tool for ruling out all sorts of nonsense that, when we use our native tongues, are almost impossible to avoid.
 
-- How to be sure of what a program **does not**?
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-- How to ensure _"if it compiles, it is ~correct"_?
+## Goal: Programming Language as a means of Abstraction
+
+How to specify
+
+- What a program **does**?
+
+- What a program **does not**?
 
 <br>
 <br>
@@ -169,29 +182,13 @@ But good luck writing
 There was no
 
 - Java 30 years ago
+
 - C# 25 years ago
+
 - Rust 15 years ago
+
 - WebAssembly 5 years ago
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-## What is CSE 130 about?
-
-- Concepts in programming languages
-- Programming paradigms
-- Language design and implementation
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 <br>
 <br>
 <br>
@@ -204,6 +201,7 @@ There was no
 ![Anatomy](/static/img/anatomy.png){#fig:anatomy .align-center width=20%}
 
 - What makes a programming language?
+
 - Which features are **fundamental** and which are **syntactic sugar**?
 
 <br>
@@ -217,12 +215,14 @@ There was no
 
 ![Musical Score](/static/img/music-score.png){#fig:music .align-center width=30%}
 
-New ways to **describe** and **organize** computation,
-to create programs that are:
+New ways to **describe** and **organize** computation, to create programs that are:
 
 - **Correct**
+
 - **Readable**
+
 - **Extendable**
+
 - **Reusable**
 
 <br>
@@ -263,30 +263,16 @@ If you work on a large system, you **will** design a new PL!
 But isn't that decided by
 
 - Libraries
+
 - Standards
+
 - Hiring
+
 - Your Boss?!
 
 Yes.
 
 **My goal:** Educate tomorrow's leaders so you'll make **informed** choices.
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-## What is CSE 130 **not** about?
-
-Learning...
-
-- JavaScript in January
-- Haskell in February
-- C++ in March
-
-etc.
 
 <br>
 <br>
@@ -341,7 +327,9 @@ etc.
 **Functional Programming**
 
 - Lambda calculus (2 weeks)
+
 - Functional Programming (4 weeks)
+
 - Building an Interpreter (3 weeks)
 
 **Logic Programming**
