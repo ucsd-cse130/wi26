@@ -60,13 +60,12 @@ But good luck writing
 
 ## So Why Study Programming Languages?
 
-![Federico Fellini](/static/img/fellini.png){#fig:fellini .align-center width=25%}
-
-> A different language
-> is
-> a different vision
-> of life.
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 <br>
@@ -74,20 +73,79 @@ But good luck writing
 <br>
 <br>
 
-## So Why Study Programming Languages?
+## Edsger Dijkstra "On the foolishness of natural language programming", 1978
 
-> The principle of **linguistic relativity**
-> holds that the structure of a language
-> affects its speakers world view or cognition.
+![](/static/img/dijkstra.jpg){#fig:types .align-center width=60%}
 
-Or more simply:
+> From one gut feeling I derive much consolation: I suspect that machines to be programmed in our native tongues — be it Dutch, English, American, French, German, or Swahili— are as damned difficult to make as they would be to use.
 
-> Programming Language
-> shapes
-> Programming Thought.
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-Language affects how ideas and computation are expressed
+## Fifty years later ...
 
+![the elephant in the room](/static/img/elephant-in-room.webp){#fig:types .align-center width=60%}
+
+... Won't LLMs like `ChatGPT`, `Claude`, `Grok`, ... let us **vibe code** all the programs?
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## Greg Brockman, President, CTO & Co-Founder, OpenAI
+
+![](/static/img/brockman-rust.png){#fig:types .align-center width=90%}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## Not just OpenAI...
+
+![](/static/img/rust-android.png){#fig:types .align-center width=90%}
+
+... similar stories from Microsoft, Meta, Amazon, etc.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## Learning Goals for CSE 230
+
+**Abstraction:** Intellectual and Algorithmic tools for reasoning about program behavior
+
+- How to specify what a program **does**?
+
+- How to be sure of what a program **does not**?
+
+- How to ensure _"if it compiles, it is ~correct"_?
+
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 <br>
