@@ -20,9 +20,9 @@ headerImg: world-map.jpg
 
 ## Staff and Office Hours
 
-|              | **Staff**                                     | **Office Hours**            |
-| :----------- | :-------------------------------------------- | :-------------------------- |
-| _Instructor_ | [Ranjit Jhala](https://ranjitjhala.github.io) | Tu, Th 12:30-1:30pm, (3110) |
-| _TA_         | [Cole Kurashige](mailto:ckurashige@ucsd.edu)  | TBA                         |
-| _Tutor_      | [Yuehua Xie](mailto:yux070@ucsd.edu)          | TBA                         |
-| _Tutor_      | [Alain Zhang](mailto:atz001@ucsd.edu)         | TBA                         |
+|              | **Staff**                                     | **Office Hours**      | **Location** |
+| :----------- | :-------------------------------------------- | :-------------------- | :----------- |
+| _Instructor_ | [Ranjit Jhala](https://ranjitjhala.github.io) | Tu, Th 12:30-1:30pm   | CSE 3110     |
+| _TA_         | [Cole Kurashige](mailto:ckurashige@ucsd.edu)  | Wed 1-2p              | B240A        |
+| _Tutor_      | [Yuehua Xie](mailto:yux070@ucsd.edu)          | Fri 9-10a, 1:30-2:30p | B250         |
+| _Tutor_      | [Alain Zhang](mailto:atz001@ucsd.edu)         | Mon 3-5p              | B250         |
