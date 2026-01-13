@@ -1,0 +1,88 @@
+let ID = \x -> x
+let FIRST = \x1 -> (\x2 -> (\x3 -> x1) )
+let SECOND = \x1 -> (\x2 -> (\x3 -> x2) )
+let THIRD = \x1 -> (\x2 -> (\x3 -> x3) )
+
+let TRUE  = \x1 x2 -> x1
+let FALSE = \x1 x2 -> x2
+let ITE   = \b -> (\x1 -> (\x2 -> ((b x1) x2)))
+
+eval ifTrue:
+  ITE TRUE apple banana
+  =d> (\b -> (\x1 -> (\x2 -> ((b x1) x2))) TRUE apple banana
+  =*> TRUE apple banana
+  
+eval ifFalse:
+  ITE FALSE apple banana
+  =~> banana
+
+eval f3: 
+  (((THIRD apple) banana) orange)
+  =~> orange 
+  
+  
+eval f2: 
+  (((SECOND apple) banana) orange)
+  =~> banana
+
+eval f1: 
+  (((FIRST apple) banana) orange)
+  =~> apple
+
+eval blah:
+    ID apple 
+  =~> apple
+  
+  --     (\x -> x) apple -- \x -> (x apple)
+  -- =b> apple
+
+eval long: 
+ (\f -> f (\x -> x)) (\x -> x)
+ 
+ =b> (\x -> x) (\x -> x)
+ 
+ =b> (\x -> x)
+
+ 
+ 
+ 
+ 
+ 
+  
+
+eval funny:
+  (\x -> (\y -> x)) yiggetybop
+  =b> (\y -> yiggetybop)
+  
+eval funy:
+     (\x -> (\y          -> x)) yiggetybop
+ =a> (\x -> (\yiggetybop -> x)) yiggetybop
+ =a> (\x -> (\y -> x)) yiggetybop
+ =b> ((\y -> yiggetybop)) 
+
+
+
+
+
+
+
+eval q5:
+  ((\x -> banana ) apple)
+  =b> banana
+
+eval ex0 : 
+  (\x -> ((((y x) y x)))) apple
+  =b> ((((y apple) y apple)))
+
+
+eval ex1 : 
+  (\x -> ( x ( \x -> x ) ) ) apple
+  =b>  ( apple ( \x -> x ) ) 
+
+eval q2 :
+  -- ((\x -> (\y -> y)) apple)
+  ((\x -> (\x -> x)) apple)
+  =b> (\x -> x)
+
+
+   
