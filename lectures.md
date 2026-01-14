@@ -83,8 +83,9 @@ The live-edited code for each lecture can be found [here][code].
 [pdf8]: /static/raw/08-monads.pdf
 [code]: https://github.com/ucsd-cse130/wi25/tree/master/static/code/src
 [arith]: https://github.com/ucsd-cse130/wi24/tree/main/static/arith
-[lc1b]: /static/raw/lec_1_8_2026.lc
-[lc2a]: /static/raw/lec_1_13_2026.lc
+[lc1b]: https://github.com/ucsd-cse130/wi26/blob/main/static/raw/lec_1_8_2026.lc
+[lc2a]: https://github.com/ucsd-cse130/wi26/blob/main/static/raw/lec_1_13_2026.lc
+
 [pdf-data]: /static/raw/03-datatypes.pdf
 [pdf-data-b]: /static/raw/03-datatypes-B.pdf
 [pdf-parse]: /static/raw/06-parsing.pdf

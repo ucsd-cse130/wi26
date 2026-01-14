@@ -2411,6 +2411,19 @@ Instead of
 - ~~Inside _this_ function I want to call the _same_ function on `DEC n`~~
 
 Lets try
+#quiz(name: "Multiplication")[
+
+How shall we implement `MUL` such that
+
+```
+MUL N0 N1 =~> N0
+MUL N0 N2 =~> N0
+MUL N1 N1 =~> N1
+MUL N1 N2 =~> N2
+MUL N2 N2 =~> N4
+```
+
+]
 
 - Inside _this_ function I want to call _some_ function `rec` on `DEC n`
 - And BTW, I want `rec` to be the _same_ function

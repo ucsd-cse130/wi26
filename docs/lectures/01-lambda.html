@@ -1995,7 +1995,15 @@ is encoded as a combinator that
 <ul>
 <li><del>Inside <em>this</em> function I want to call the <em>same</em> function on <code class="sourceCode haskell"><span class="dt">DEC</span> n</code></del></li>
 </ul>
-<p>Lets try</p>
+<p>Lets try
+#quiz(name: “Multiplication”)[</p>
+<p>How shall we implement <code class="sourceCode haskell"><span class="dt">MUL</span></code> such that</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="dt">MUL</span> <span class="dt">N0</span> <span class="dt">N1</span> <span class="op">=~&gt;</span> <span class="dt">N0</span></span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="dt">MUL</span> <span class="dt">N0</span> <span class="dt">N2</span> <span class="op">=~&gt;</span> <span class="dt">N0</span></span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a><span class="dt">MUL</span> <span class="dt">N1</span> <span class="dt">N1</span> <span class="op">=~&gt;</span> <span class="dt">N1</span></span>
+<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a><span class="dt">MUL</span> <span class="dt">N1</span> <span class="dt">N2</span> <span class="op">=~&gt;</span> <span class="dt">N2</span></span>
+<span id="cb70-5"><a href="#cb70-5" aria-hidden="true" tabindex="-1"></a><span class="dt">MUL</span> <span class="dt">N2</span> <span class="dt">N2</span> <span class="op">=~&gt;</span> <span class="dt">N4</span></span></code></pre></div>
+<p>]</p>
 <ul>
 <li>Inside <em>this</em> function I want to call <em>some</em> function <code class="sourceCode haskell">rec</code> on <code class="sourceCode haskell"><span class="dt">DEC</span> n</code></li>
 <li>And BTW, I want <code class="sourceCode haskell">rec</code> to be the <em>same</em> function</li>
@@ -2003,16 +2011,16 @@ is encoded as a combinator that
 <p><br>
 <br></p>
 <p><strong>Step 1:</strong> Pass in the function to call “recursively”</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> <span class="dt">STEP</span> <span class="ot">=</span></span>
-<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>  \rec <span class="ot">-&gt;</span> \n <span class="ot">-&gt;</span> <span class="dt">ITE</span> (<span class="dt">ISZ</span> n)</span>
-<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>                  <span class="dt">ZERO</span></span>
-<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a>                  (<span class="dt">ADD</span> n (rec (<span class="dt">DEC</span> n))) <span class="co">-- Call some rec</span></span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> <span class="dt">STEP</span> <span class="ot">=</span></span>
+<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>  \rec <span class="ot">-&gt;</span> \n <span class="ot">-&gt;</span> <span class="dt">ITE</span> (<span class="dt">ISZ</span> n)</span>
+<span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a>                  <span class="dt">ZERO</span></span>
+<span id="cb71-4"><a href="#cb71-4" aria-hidden="true" tabindex="-1"></a>                  (<span class="dt">ADD</span> n (rec (<span class="dt">DEC</span> n))) <span class="co">-- Call some rec</span></span></code></pre></div>
 <p><br>
 <br></p>
 <p><strong>Step 2:</strong> Do some magic to <code class="sourceCode haskell"><span class="dt">STEP</span></code>, so <code class="sourceCode haskell">rec</code> is itself</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>\n <span class="ot">-&gt;</span> <span class="dt">ITE</span> (<span class="dt">ISZ</span> n) <span class="dt">ZERO</span> (<span class="dt">ADD</span> n (rec (<span class="dt">DEC</span> n)))</span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>\n <span class="ot">-&gt;</span> <span class="dt">ITE</span> (<span class="dt">ISZ</span> n) <span class="dt">ZERO</span> (<span class="dt">ADD</span> n (rec (<span class="dt">DEC</span> n)))</span></code></pre></div>
 <p>That is, obtain a term <code class="sourceCode haskell"><span class="dt">MAGIC</span></code> such that</p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="dt">MAGIC</span> <span class="op">=*&gt;</span> <span class="dt">STEP</span> <span class="dt">MAGIC</span></span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="dt">MAGIC</span> <span class="op">=*&gt;</span> <span class="dt">STEP</span> <span class="dt">MAGIC</span></span></code></pre></div>
 <p><br>
 <br>
 <br>
@@ -2030,7 +2038,7 @@ is encoded as a combinator that
 <ul>
 <li><code class="sourceCode haskell"><span class="dt">FIX</span> <span class="dt">STEP</span></code> calls <code class="sourceCode haskell"><span class="dt">STEP</span></code> with <code class="sourceCode haskell"><span class="dt">FIX</span> <span class="dt">STEP</span></code> as the first argument:</li>
 </ul>
-<div class="sourceCode" id="cb73"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>(<span class="dt">FIX</span> <span class="dt">STEP</span>) <span class="op">=*&gt;</span> <span class="dt">STEP</span> (<span class="dt">FIX</span> <span class="dt">STEP</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>(<span class="dt">FIX</span> <span class="dt">STEP</span>) <span class="op">=*&gt;</span> <span class="dt">STEP</span> (<span class="dt">FIX</span> <span class="dt">STEP</span>)</span></code></pre></div>
 <p><br></p>
 <p>(In math: a <em>fixpoint</em> of a function <span class="math inline"><em>f</em>(<em>x</em>)</span> is a point <span class="math inline"><em>x</em></span>, such that <span class="math inline"><em>f</em>(<em>x</em>) = <em>x</em></span>)</p>
 <p><br>
@@ -2038,23 +2046,23 @@ is encoded as a combinator that
 <br>
 <br></p>
 <p>Once we have it, we can define:</p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> <span class="dt">SUM</span> <span class="ot">=</span> <span class="dt">FIX</span> <span class="dt">STEP</span></span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> <span class="dt">SUM</span> <span class="ot">=</span> <span class="dt">FIX</span> <span class="dt">STEP</span></span></code></pre></div>
 <p>Then by property of <code class="sourceCode haskell"><span class="dt">FIX</span></code> we have:</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="dt">SUM</span>   <span class="op">=*&gt;</span>   <span class="dt">FIX</span> <span class="dt">STEP</span>  <span class="op">=*&gt;</span>   <span class="dt">STEP</span> (<span class="dt">FIX</span> <span class="dt">STEP</span>)   <span class="op">=*&gt;</span>   <span class="dt">STEP</span> <span class="dt">SUM</span></span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="dt">SUM</span>   <span class="op">=*&gt;</span>   <span class="dt">FIX</span> <span class="dt">STEP</span>  <span class="op">=*&gt;</span>   <span class="dt">STEP</span> (<span class="dt">FIX</span> <span class="dt">STEP</span>)   <span class="op">=*&gt;</span>   <span class="dt">STEP</span> <span class="dt">SUM</span></span></code></pre></div>
 <p>and so now we compute:</p>
-<div class="sourceCode" id="cb76"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>eval sum_two<span class="op">:</span></span>
-<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">SUM</span> <span class="dt">TWO</span></span>
-<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">=*&gt;</span> <span class="dt">STEP</span> <span class="dt">SUM</span> <span class="dt">TWO</span></span>
-<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">=*&gt;</span> <span class="dt">ITE</span> (<span class="dt">ISZ</span> <span class="dt">TWO</span>) <span class="dt">ZERO</span> (<span class="dt">ADD</span> <span class="dt">TWO</span> (<span class="dt">SUM</span> (<span class="dt">DEC</span> <span class="dt">TWO</span>)))</span>
-<span id="cb76-5"><a href="#cb76-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">=*&gt;</span> <span class="dt">ADD</span> <span class="dt">TWO</span> (<span class="dt">SUM</span> (<span class="dt">DEC</span> <span class="dt">TWO</span>))</span>
-<span id="cb76-6"><a href="#cb76-6" aria-hidden="true" tabindex="-1"></a>  <span class="op">=*&gt;</span> <span class="dt">ADD</span> <span class="dt">TWO</span> (<span class="dt">SUM</span> <span class="dt">ONE</span>)</span>
-<span id="cb76-7"><a href="#cb76-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">=*&gt;</span> <span class="dt">ADD</span> <span class="dt">TWO</span> (<span class="dt">STEP</span> <span class="dt">SUM</span> <span class="dt">ONE</span>)</span>
-<span id="cb76-8"><a href="#cb76-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">=*&gt;</span> <span class="dt">ADD</span> <span class="dt">TWO</span> (<span class="dt">ITE</span> (<span class="dt">ISZ</span> <span class="dt">ONE</span>) <span class="dt">ZERO</span> (<span class="dt">ADD</span> <span class="dt">ONE</span> (<span class="dt">SUM</span> (<span class="dt">DEC</span> <span class="dt">ONE</span>))))</span>
-<span id="cb76-9"><a href="#cb76-9" aria-hidden="true" tabindex="-1"></a>  <span class="op">=*&gt;</span> <span class="dt">ADD</span> <span class="dt">TWO</span> (<span class="dt">ADD</span> <span class="dt">ONE</span> (<span class="dt">SUM</span> (<span class="dt">DEC</span> <span class="dt">ONE</span>)))</span>
-<span id="cb76-10"><a href="#cb76-10" aria-hidden="true" tabindex="-1"></a>  <span class="op">=*&gt;</span> <span class="dt">ADD</span> <span class="dt">TWO</span> (<span class="dt">ADD</span> <span class="dt">ONE</span> (<span class="dt">SUM</span> <span class="dt">ZERO</span>))</span>
-<span id="cb76-11"><a href="#cb76-11" aria-hidden="true" tabindex="-1"></a>  <span class="op">=*&gt;</span> <span class="dt">ADD</span> <span class="dt">TWO</span> (<span class="dt">ADD</span> <span class="dt">ONE</span> (<span class="dt">ITE</span> (<span class="dt">ISZ</span> <span class="dt">ZERO</span>) <span class="dt">ZERO</span> (<span class="dt">ADD</span> <span class="dt">ZERO</span> (<span class="dt">SUM</span> <span class="dt">DEC</span> <span class="dt">ZERO</span>)))</span>
-<span id="cb76-12"><a href="#cb76-12" aria-hidden="true" tabindex="-1"></a>  <span class="op">=*&gt;</span> <span class="dt">ADD</span> <span class="dt">TWO</span> (<span class="dt">ADD</span> <span class="dt">ONE</span> (<span class="dt">ZERO</span>))</span>
-<span id="cb76-13"><a href="#cb76-13" aria-hidden="true" tabindex="-1"></a>  <span class="op">=*&gt;</span> <span class="dt">THREE</span></span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>eval sum_two<span class="op">:</span></span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">SUM</span> <span class="dt">TWO</span></span>
+<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">=*&gt;</span> <span class="dt">STEP</span> <span class="dt">SUM</span> <span class="dt">TWO</span></span>
+<span id="cb77-4"><a href="#cb77-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">=*&gt;</span> <span class="dt">ITE</span> (<span class="dt">ISZ</span> <span class="dt">TWO</span>) <span class="dt">ZERO</span> (<span class="dt">ADD</span> <span class="dt">TWO</span> (<span class="dt">SUM</span> (<span class="dt">DEC</span> <span class="dt">TWO</span>)))</span>
+<span id="cb77-5"><a href="#cb77-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">=*&gt;</span> <span class="dt">ADD</span> <span class="dt">TWO</span> (<span class="dt">SUM</span> (<span class="dt">DEC</span> <span class="dt">TWO</span>))</span>
+<span id="cb77-6"><a href="#cb77-6" aria-hidden="true" tabindex="-1"></a>  <span class="op">=*&gt;</span> <span class="dt">ADD</span> <span class="dt">TWO</span> (<span class="dt">SUM</span> <span class="dt">ONE</span>)</span>
+<span id="cb77-7"><a href="#cb77-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">=*&gt;</span> <span class="dt">ADD</span> <span class="dt">TWO</span> (<span class="dt">STEP</span> <span class="dt">SUM</span> <span class="dt">ONE</span>)</span>
+<span id="cb77-8"><a href="#cb77-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">=*&gt;</span> <span class="dt">ADD</span> <span class="dt">TWO</span> (<span class="dt">ITE</span> (<span class="dt">ISZ</span> <span class="dt">ONE</span>) <span class="dt">ZERO</span> (<span class="dt">ADD</span> <span class="dt">ONE</span> (<span class="dt">SUM</span> (<span class="dt">DEC</span> <span class="dt">ONE</span>))))</span>
+<span id="cb77-9"><a href="#cb77-9" aria-hidden="true" tabindex="-1"></a>  <span class="op">=*&gt;</span> <span class="dt">ADD</span> <span class="dt">TWO</span> (<span class="dt">ADD</span> <span class="dt">ONE</span> (<span class="dt">SUM</span> (<span class="dt">DEC</span> <span class="dt">ONE</span>)))</span>
+<span id="cb77-10"><a href="#cb77-10" aria-hidden="true" tabindex="-1"></a>  <span class="op">=*&gt;</span> <span class="dt">ADD</span> <span class="dt">TWO</span> (<span class="dt">ADD</span> <span class="dt">ONE</span> (<span class="dt">SUM</span> <span class="dt">ZERO</span>))</span>
+<span id="cb77-11"><a href="#cb77-11" aria-hidden="true" tabindex="-1"></a>  <span class="op">=*&gt;</span> <span class="dt">ADD</span> <span class="dt">TWO</span> (<span class="dt">ADD</span> <span class="dt">ONE</span> (<span class="dt">ITE</span> (<span class="dt">ISZ</span> <span class="dt">ZERO</span>) <span class="dt">ZERO</span> (<span class="dt">ADD</span> <span class="dt">ZERO</span> (<span class="dt">SUM</span> <span class="dt">DEC</span> <span class="dt">ZERO</span>)))</span>
+<span id="cb77-12"><a href="#cb77-12" aria-hidden="true" tabindex="-1"></a>  <span class="op">=*&gt;</span> <span class="dt">ADD</span> <span class="dt">TWO</span> (<span class="dt">ADD</span> <span class="dt">ONE</span> (<span class="dt">ZERO</span>))</span>
+<span id="cb77-13"><a href="#cb77-13" aria-hidden="true" tabindex="-1"></a>  <span class="op">=*&gt;</span> <span class="dt">THREE</span></span></code></pre></div>
 <p>How should we define <code class="sourceCode haskell"><span class="dt">FIX</span></code>???</p>
 <p><br>
 <br>
@@ -2070,24 +2078,24 @@ is encoded as a combinator that
 <br></p>
 <h2 id="the-y-combinator">The Y combinator</h2>
 <p>Remember <span class="math inline"><em>Ω</em></span>?</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>(\x <span class="ot">-&gt;</span> x x) (\x <span class="ot">-&gt;</span> x x)</span>
-<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="ot">=</span>b<span class="op">&gt;</span> (\x <span class="ot">-&gt;</span> x x) (\x <span class="ot">-&gt;</span> x x)</span></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>(\x <span class="ot">-&gt;</span> x x) (\x <span class="ot">-&gt;</span> x x)</span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="ot">=</span>b<span class="op">&gt;</span> (\x <span class="ot">-&gt;</span> x x) (\x <span class="ot">-&gt;</span> x x)</span></code></pre></div>
 <p>This is <em>self-replcating code</em>! We need something like this but a bit more involved…</p>
 <p><br>
 <br>
 <br>
 <br></p>
 <p>The Y combinator discovered by Haskell Curry:</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> <span class="dt">FIX</span>   <span class="ot">=</span> \stp <span class="ot">-&gt;</span> (\x <span class="ot">-&gt;</span> stp (x x)) (\x <span class="ot">-&gt;</span> stp (x x))</span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> <span class="dt">FIX</span>   <span class="ot">=</span> \stp <span class="ot">-&gt;</span> (\x <span class="ot">-&gt;</span> stp (x x)) (\x <span class="ot">-&gt;</span> stp (x x))</span></code></pre></div>
 <p><br>
 <br></p>
 <p>How does it work?</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>eval fix_step<span class="op">:</span></span>
-<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">FIX</span> <span class="dt">STEP</span></span>
-<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a>  <span class="ot">=</span>d<span class="op">&gt;</span> (\stp <span class="ot">-&gt;</span> (\x <span class="ot">-&gt;</span> stp (x x)) (\x <span class="ot">-&gt;</span> stp (x x))) <span class="dt">STEP</span></span>
-<span id="cb79-4"><a href="#cb79-4" aria-hidden="true" tabindex="-1"></a>  <span class="ot">=</span>b<span class="op">&gt;</span> (\x <span class="ot">-&gt;</span> <span class="dt">STEP</span> (x x)) (\x <span class="ot">-&gt;</span> <span class="dt">STEP</span> (x x))</span>
-<span id="cb79-5"><a href="#cb79-5" aria-hidden="true" tabindex="-1"></a>  <span class="ot">=</span>b<span class="op">&gt;</span> <span class="dt">STEP</span> ((\x <span class="ot">-&gt;</span> <span class="dt">STEP</span> (x x)) (\x <span class="ot">-&gt;</span> <span class="dt">STEP</span> (x x)))</span>
-<span id="cb79-6"><a href="#cb79-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">--       ^^^^^^^^^^ this is FIX STEP ^^^^^^^^^^^</span></span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>eval fix_step<span class="op">:</span></span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">FIX</span> <span class="dt">STEP</span></span>
+<span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a>  <span class="ot">=</span>d<span class="op">&gt;</span> (\stp <span class="ot">-&gt;</span> (\x <span class="ot">-&gt;</span> stp (x x)) (\x <span class="ot">-&gt;</span> stp (x x))) <span class="dt">STEP</span></span>
+<span id="cb80-4"><a href="#cb80-4" aria-hidden="true" tabindex="-1"></a>  <span class="ot">=</span>b<span class="op">&gt;</span> (\x <span class="ot">-&gt;</span> <span class="dt">STEP</span> (x x)) (\x <span class="ot">-&gt;</span> <span class="dt">STEP</span> (x x))</span>
+<span id="cb80-5"><a href="#cb80-5" aria-hidden="true" tabindex="-1"></a>  <span class="ot">=</span>b<span class="op">&gt;</span> <span class="dt">STEP</span> ((\x <span class="ot">-&gt;</span> <span class="dt">STEP</span> (x x)) (\x <span class="ot">-&gt;</span> <span class="dt">STEP</span> (x x)))</span>
+<span id="cb80-6"><a href="#cb80-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">--       ^^^^^^^^^^ this is FIX STEP ^^^^^^^^^^^</span></span></code></pre></div>
 <p><br>
 <br>
 <br>
