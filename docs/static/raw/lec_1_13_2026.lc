@@ -1,64 +1,194 @@
-let ID = \x -> x
-let FIRST = \x1 -> (\x2 -> (\x3 -> x1) )
-let SECOND = \x1 -> (\x2 -> (\x3 -> x2) )
-let THIRD = \x1 -> (\x2 -> (\x3 -> x3) )
+let TT = \x1 x2 -> x1
+let FF = \x1 x2 -> x2
+let ITE = \b xThen xElse -> b xThen xElse
+let NOT = \b -> ITE b FF TT 
+let NOT1 = \b -> (\x1 x2 -> b x2 x1)
+let AND = \b1 b2 -> ITE b1 b2 FF
+let OR  = \b1 b2 -> ITE b1 TT b2
 
-let TRUE  = \x1 x2 -> x1
-let FALSE = \x1 x2 -> x2
-let ITE   = \b -> (\x1 -> (\x2 -> ((b x1) x2)))
 
-eval ifTrue:
-  ITE TRUE apple banana
-  =d> (\b -> (\x1 -> (\x2 -> ((b x1) x2))) TRUE apple banana
-  =*> TRUE apple banana
+
+let PACK = \x1 x2 -> (\selector -> selector x1 x2)
+let FST  = \obj -> obj TT
+let SND  = \obj -> obj FF
+
+
+{- 
+
+let ZERO = \f x -> x
+let ONE  = \f x -> f x
+let TWO  = \f x -> f (f x)
+let THREE =\f x -> f (f (f x))
+let FOUR = \f x -> f (f (f (f x)))
+
+ZERO bob apple = apple
+ONE bob apple = bob apple
+TWO bob apple = bob (bob apple)
+THREE bob apple = bob (bob (bob apple))
+FOUR bob apple = bob (bob (bob (bob apple)))
+
+"n" bob apple = bob ... (bob apple)
+
+n f x = 'hit x with f n-times'
+
+= 
+
+
+let INC = \n -> (\f x -> f (n f x) ) 
+
+INC ZERO = ONE
+INC ONE  = TWO
+INC TWO  = THREE
+
+
+
+
+let PACK3 = \x1 x2 x3 -> (\selector -> selector x1 x2 x3)
+let FST3  = \obj -> obj (\x1 x2 x3 -> x1)
+let SND3  = \obj -> obj (\x1 x2 x3 -> x2)
+let THD3  = \obj -> obj (\x1 x2 x3 -> x3)
+
+
+
+FST3 (PACK3 apple banana chip)
+=*> apple 
+
+SND3 (PACK3 apple banana chip)
+=*> banana
+
+THD3 (PACK3 apple banana chip)
+=*> chip
+-}
+
+
+
+
+eval packFst: 
+  FST (PACK apple banana)
+  =*> FST (\b -> b apple banana)
+  =*> (\b -> b apple banana) TT
+  =*> TT apple banana
+  =*> apple
+
+eval packSnd: 
+  SND (PACK apple banana)
+  =*> SND (\b -> b apple banana)
+  =*> (\b -> b apple banana) FF
+  =*> FF apple banana
+  =*> banana
+
+
+{- 
+-- smells like TT
+FST (PACK apple banana) 
+
+FST (\b -> b apple banana) 
+
+~~~~> TT apple banana
+
+=~> apple
+
+
+-- smells like FF
+SND (PACK apple banana)
+~~~~> FF apple banana
+=~> banana
+
+
+
+
+
+
+
+-}
+
+
+
+
+-- let AND =
+
+
+{- 
+
+def AND(b1, b2):
+  if NOT(b1):
+     return FALSE
+  else:
+    if NOT(b2):
+      return FALSE
+    else: 
+      return TRUE
+      
+def AND(b1, b2):
+  if b1:
+    return b2
+  else:
+    return FALSE
+
+def OR(b1, b2): 
+  if b1:
+     return TRUE
+  else:
+     return b2
+
+
+
+
+
+-}
+
+
+eval not_tt:
+  NOT1 TT
+  =d> (\b -> (\x1 x2 -> b x2 x1))   TT
+  =b> (\x1 x2 -> TT x2 x1)
+  =d> (\x1 x2 -> (\x1 x2 -> x1) x2 x1)
+  =a> (\x1 x2 -> (\a x2 -> a) x2 x1)
+  =a> (\x1 x2 -> (\a b -> a) x2 x1)
+  =b> (\x1 x2 -> (\b -> x2)  x1)
+  =b> (\x1 x2 -> x2)
+  =~> FF
   
-eval ifFalse:
-  ITE FALSE apple banana
-  =~> banana
 
-eval f3: 
-  (((THIRD apple) banana) orange)
-  =~> orange 
+
+{- 
+
+NOT TT ==> FF
+NOT FF ==> TT
+
+ 
+
+
+
+
+let LHS = \x y z -> RHS
+
+LHS x y z ===> RHS 
+
+let ITE b xThen xElse ===> b xThen xElse
+
+
+let TT = \x1 x2 -> x1
+
+TT x1 x2 ===> x1
+FF x1 x2 ===> x2
+
+
+  ITE TT app ban
   
+  ===> 
   
-eval f2: 
-  (((SECOND apple) banana) orange)
-  =~> banana
-
-eval f1: 
-  (((FIRST apple) banana) orange)
-  =~> apple
-
-eval blah:
-    ID apple 
-  =~> apple
+  TT app ban
   
-  --     (\x -> x) apple -- \x -> (x apple)
-  -- =b> apple
-
-eval long: 
- (\f -> f (\x -> x)) (\x -> x)
- 
- =b> (\x -> x) (\x -> x)
- 
- =b> (\x -> x)
-
- 
- 
- 
- 
- 
+  ===>
   
+  app
 
-eval funny:
-  (\x -> (\y -> x)) yiggetybop
-  =b> (\y -> yiggetybop)
-  
-eval funy:
-     (\x -> (\y          -> x)) yiggetybop
- =a> (\x -> (\yiggetybop -> x)) yiggetybop
- =a> (\x -> (\y -> x)) yiggetybop
- =b> ((\y -> yiggetybop)) 
+
+ITE FF app ban === FF app ban == ban
+
+
+-}
 
 
 
@@ -66,23 +196,33 @@ eval funy:
 
 
 
-eval q5:
-  ((\x -> banana ) apple)
-  =b> banana
+eval if_true: 
+  ITE TT app ban
+  =d>  (\b xThen xElse -> b xThen xElse)  TT app ban
+  =b>  (\xThen xElse -> TT xThen xElse)   app ban
+  =b>  (\xElse -> TT app xElse)   ban
+  =b>  TT app ban
+  =d> ( \x1 x2 -> x1) app ban
+  =b> ( \x2 -> app)  ban
+  =b> app  
 
-eval ex0 : 
-  (\x -> ((((y x) y x)))) apple
-  =b> ((((y apple) y apple)))
+eval if_false: 
+  ITE FF app ban
+  =d>  (\b xThen xElse -> b xThen xElse)  FF app ban
+  =b>  (\xThen xElse -> FF xThen xElse)   app ban
+  =b>  (\xElse -> FF app xElse)   ban
+  =b>  FF app ban
+  =d> ( \x1 x2 -> x2) app ban
+  =b> ( \x2 -> x2)  ban
+  =b> ban  
 
 
-eval ex1 : 
-  (\x -> ( x ( \x -> x ) ) ) apple
-  =b>  ( apple ( \x -> x ) ) 
-
-eval q2 :
-  -- ((\x -> (\y -> y)) apple)
-  ((\x -> (\x -> x)) apple)
-  =b> (\x -> x)
 
 
-   
+
+eval funny: 
+      ((\x1 -> \x2 -> \x3 -> apple) apple) banana orange
+  =b> (( \x2 -> \x3 -> apple)) banana orange
+  =b> ((\x3 -> apple))  orange
+  =b> apple
+
