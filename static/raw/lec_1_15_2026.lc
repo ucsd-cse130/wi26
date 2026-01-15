@@ -1,0 +1,130 @@
+let ZERO = \f x -> x
+let ONE  = \f x -> f x
+let TWO  = \f x -> f (f x)
+let THREE = \f x -> f (f (f x))
+
+let FOUR = \f x -> f (f (f (f x)))
+let SIX = \f x -> f (f (f (f (f (f x)))))
+let INC = \n -> (\f x -> f (n f x))
+
+let TT   = \x1 x2 -> x1
+let FF   = \x1 x2 -> x2 
+
+let PACK = \t1 t2 -> (\chooser -> chooser t1 t2) 
+let FST  = \p -> p (\x1 x2 -> x1)
+let SND  = \p -> p (\x1 x2 -> x2)
+
+let PACK3 = \t1 t2 t3 -> (\chooser -> chooser t1 t2 t3) 
+let FST3  = \p -> p (\x1 x2 x3 -> x1)
+let SND3  = \p -> p (\x1 x2 x3 -> x2)
+let THD3  = \p -> p (\x1 x2 x3 -> x3)
+
+-- FST3  (PACK3 apple banana orange) ==> apple
+-- SND3  (PACK3 apple banana orange) ==> banana
+-- THD3  (PACK3 apple banana orange) ==> orange
+let PACK33 = \t1 t2 t3 -> PACK t1 (PACK t2 t3)
+let FST33  = \p -> FST p
+let SND33  = \p -> FST (SND p)
+let THD33  = \p -> SND (SND p)
+let ADD = \n m -> n INC m
+
+let MUL = \n m -> m (ADD n) ZERO 
+
+let IsZERO = \n -> n (\m -> FF) TT
+
+let CONS = \h t -> PACK h t
+let NIL  = ZERO
+let HEAD = \l -> FST l
+let TAIL = \l -> SND l
+
+-- let NTH  = \n l -> n-th element of l
+
+-- let NTH  = \n l -> call tail n times, then call HEAD n-th element of l
+
+let NTH  = \n l -> HEAD (n TAIL l)
+
+-- (CONS a (CONS b (CONS c (CONS d NIL))))
+
+eval index_3 : 
+  NTH THREE (CONS a (CONS b (CONS c (CONS d NIL))))
+  =~> d 
+
+  
+  
+-- eval list_head: 
+--   HEAD (CONS a (CONS b (CONS c (CONS d NIL))))
+--   =*> a 
+
+-- eval list_tail: 
+--   TAIL (CONS a (CONS b (CONS c (CONS d NIL))))
+--   =*> (CONS b (CONS c (CONS d NIL)))
+
+-- TAIL (CONS a (CONS b (CONS c (CONS d NIL))))
+-- ==> (CONS b (CONS c (CONS d NIL))
+
+
+
+
+
+
+
+eval mul_2_3: 
+  MUL TWO THREE
+  =*> THREE (ADD TWO) ZERO
+  =*> ADD TWO (ADD TWO (ADD TWO (ZERO)))
+  =*> SIX
+
+-- ((ZERO + n) + n) + ... + n) "add n to ZERO m times"
+
+
+-- let ADD = \n m -> "increment n" but do it "m" times 
+-- let ADD = \n m -> INC...(INC(INC(INC(INC m)))) ... (n -times)
+
+-- let ADD = \n m -> INC...(INC(INC(INC(INC n)))) ... (m -times)
+-- let ADD = \n m - > m INC n
+-- let ADD = \n m -> n (INC m) 
+-- let ADD = \n m -> (n INC) m
+-- let ADD = \n m -> ((n INC) m)
+-- (((e1 e2) e3) e4)
+
+
+eval add_2_2:
+  ADD TWO TWO =*> FOUR
+
+
+
+
+
+-- let PACK t1 t2 = \chooser -> chooser t1 t2
+-- let FST  p = p TT
+
+-- let ZERO f x =  x
+-- let ONE  = \f x -> f x
+-- let TWO f x = f (f x)
+-- let INC n =  (\f x -> f (n f x))
+
+eval INC0: 
+  INC ZERO
+  =*> (\f x -> f (ZERO f x))
+  =*> (\f x -> f x)
+  =*> ONE
+
+eval INC1:
+  INC TWO 
+  =*> (\f x -> f (TWO f x))
+  =*> (\f x -> f (f (f x)))
+
+
+
+
+
+
+
+
+eval pairFst: 
+  FST (PACK apple banana)
+  =*> FST (\chooser -> chooser apple banana)
+  =*> (\chooser -> chooser apple banana) TT
+  =*> TT apple banana
+  =*> apple
+
