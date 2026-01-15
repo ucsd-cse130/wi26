@@ -10,6 +10,7 @@ The live-edited code for each lecture can be found [here][code].
 | 1/6      | Hello, World!       | [html][lec0] |             |              |
 | 1/8      | The Lambda Calculus | [html][lec1] | [pdf][pdf1] | [code][lc1b] |
 | 1/13     | ""                  |              |             | [code][lc2a] |
+| 1/13     | ""                  |              |             | [code][lc2b] |
 | 1/27     | Midterm I           |              |             |              |
 | 2/19     | Midterm II          |              |             |              |
 | 3/19     | Final Exam          |              |             |              |
@@ -85,6 +86,7 @@ The live-edited code for each lecture can be found [here][code].
 [arith]: https://github.com/ucsd-cse130/wi24/tree/main/static/arith
 [lc1b]: https://github.com/ucsd-cse130/wi26/blob/main/static/raw/lec_1_8_2026.lc
 [lc2a]: https://github.com/ucsd-cse130/wi26/blob/main/static/raw/lec_1_13_2026.lc
+[lc2b]: https://github.com/ucsd-cse130/wi26/blob/main/static/raw/lec_1_15_2026.lc
 
 [pdf-data]: /static/raw/03-datatypes.pdf
 [pdf-data-b]: /static/raw/03-datatypes-B.pdf
