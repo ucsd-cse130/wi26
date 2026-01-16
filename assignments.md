@@ -13,6 +13,27 @@ but no more than _four late days_ per assignment.
 - If you submit past the late day limit, you get 0 points for that assignment
 - There is no penalty for submitting late but within the limit
 
+## Accessing the assignments
+
+Copied from https://piazza.com/class/mk1dsic8wex19w/post/25, these are instructions for both accessing the assignments and working on HW0 in the unlikely case that you do not have access.
+
+At least four students so far have reported problems with accessing their repository (although two of them seem to have resolved it on their own).
+
+Before you take this option, please make sure you are logged into your GitHub account and click this link (note: this is for HW0 ONLY) https://classroom.github.com/a/fVADzDND to access the assignment. If that does not work, do two things first.
+
+1. Check your email for an invitation from GitHub to join your repository. You MUST accept that in order to do the assignment.
+2. Try from an incognito window and separate browser (I have been told Firefox has some issues with codespaces).
+
+If this still does not work, please make a private piazza post with the link to your repository on GitHub classroom and your GitHub handle. If you have one already, please update that post. Then, follow the instructions below to work on the HW. These instructions only apply for HW0. For future homeworks, we expect you to have access to the repositories.
+
+1. Navigate to https://github.com/ucsd-cse230/00-lambda. This is a public repository.
+2. Skip to the instructions in the readme that describe the problems (starting with https://github.com/ucsd-cse230/00-lambda/tree/master?tab=readme-ov-file#problem-1-01_boollc )
+2. Navigate to the associated file in `tests/`
+3. Copy the entire contents of the file into Elsa ( https://elsa.goto.ucsd.edu/index.html )
+4. Now you can work on the PA in Elsa.
+5. To save your work, copy the contents in Elsa to another file (I recommend putting it in your Google Drive); the extension does not matter so long as it is plaintext.
+6. Once your repository is set up, you can copy the contents you saved into the corresponding files in `tests/`
+
 ## Assignments
 
 Fill in [this form](https://forms.gle/ZS5WYcreHKFZjT8Z7) by **Fri 1/16**
