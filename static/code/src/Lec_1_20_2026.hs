@@ -1,18 +1,6 @@
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
 {-# HLINT ignore "Use max" #-}
-module Lec_1_23_25 where
-
-{-
-    def add(x, y):
-        return x + y
-
-    add(1,2)
-    add(1.1, 2.2)
-    add("cat", "dog")
-
-
-  -}
-
+module Lec_1_20_2026 where
 
 ex1 :: Double
 ex1 = 1 + 2

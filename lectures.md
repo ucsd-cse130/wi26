@@ -5,22 +5,22 @@ headerImg: books.jpg
 
 The live-edited code for each lecture can be found [here][code].
 
-| **Date** | **Topic**           | **Notes**    | **Markup**  |   **Code**   |
-| :------- | :------------------ | :----------- | :---------: | :----------: |
-| 1/6      | Hello, World!       | [html][lec0] |             |              |
-| 1/8      | The Lambda Calculus | [html][lec1] | [pdf][pdf1] | [code][lc1b] |
-| 1/13     | ""                  |              |             | [code][lc2a] |
-| 1/13     | ""                  |              |             | [code][lc2b] |
-| 1/27     | Midterm I           |              |             |              |
-| 2/19     | Midterm II          |              |             |              |
-| 3/19     | Final Exam          |              |             |              |
+| **Date** | **Topic**                 | **Notes**    | **Markup**  |   **Code**   |
+| :------- | :------------------------ | :----------- | :---------: | :----------: |
+| 1/6      | Hello, World!             | [html][lec0] |             |              |
+| 1/8      | The Lambda Calculus       | [html][lec1] | [pdf][pdf1] | [code][lc1b] |
+| 1/13     | ""                        |              |             | [code][lc2a] |
+| 1/15     | ""                        |              |             | [code][lc2b] |
+| 1/20     | A crash course in Haskell | [html][lec2] | [pdf][pdf2] | [code][lc3a] |
+| 1/27     | Midterm I                 |              |             |              |
+| 2/19     | Midterm II                |              |             |              |
+| 3/19     | Final Exam                |              |             |              |
 
 <!--
 
 | 1/9 | The Lambda Calculus | [html][lec1] [pdf][pdf1] |
 | 1/14 | contd. | [handout][wk2a]
 | 1/16 | contd. | [handout][wk2b]
-| 1/23 | A crash course in Haskell | [html][lec2] [pdf][pdf2] [handout][wk3b] |
 | 1/30 | contd. | [handout][wk4b] |
 | 2/4 | Datatypes & Recursion | [html][lec3] [pdf][pdf3] [handout][wk5a] |
 | 2/6 | contd. | [handout][wk5b] |
@@ -87,7 +87,7 @@ The live-edited code for each lecture can be found [here][code].
 [lc1b]: https://github.com/ucsd-cse130/wi26/blob/main/static/raw/lec_1_8_2026.lc
 [lc2a]: https://github.com/ucsd-cse130/wi26/blob/main/static/raw/lec_1_13_2026.lc
 [lc2b]: https://github.com/ucsd-cse130/wi26/blob/main/static/raw/lec_1_15_2026.lc
-
+[lc3a]: https://github.com/ucsd-cse130/wi26/blob/main/static/code/src/lec_1_20_2026.hs
 [pdf-data]: /static/raw/03-datatypes.pdf
 [pdf-data-b]: /static/raw/03-datatypes-B.pdf
 [pdf-parse]: /static/raw/06-parsing.pdf
