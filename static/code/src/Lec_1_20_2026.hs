@@ -1,6 +1,40 @@
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
 {-# HLINT ignore "Use max" #-}
+{- HLINT ignore "Redundant lambda" -}
+{- HLINT ignore "Use lambda" -}
 module Lec_1_20_2026 where
+
+{-
+
+MAGIC f = f (MAGIC f)
+
+let FACSTEP =
+    \rec -> \n -> ITE (ISZ n) ONE (MUL n (rec (DECR N)))
+
+let FAC = MAGIC FACSTEP
+
+MAGIC FACSTEP ZERO
+==>
+FACSTEP (MAGIC FACSTEP) ZERO
+(1)==>
+FACSTEP (MAGIC (MAGIC FACSTEP)) ZERO
+==>
+FACSTEP (MAGIC (MAGIC (MAGIC FACSTEP))) ZERO
+
+
+FACSTEP (MAGIC FACSTEP) ZERO
+(2)==>
+ITE (ISZ ZERO) ONE (MUL ZERO (( MAGIC FACSTEP ) (DECR ZERO)))
+==>
+ONE
+
+-}
+
+
+-- pat = \x y z -> x * ( y + z )
+pat x y z =  x * ( y + z )
+
+-- >>> pat 31 42 56
 
 ex1 :: Double
 ex1 = 1 + 2
@@ -20,112 +54,134 @@ ex3 = "cat"
 ex4 :: String
 ex4 = "dog"
 
--- >>> ex3 ++ ex4
--- "catdog"
-
--- >>> isPos 10
--- True
-
--- >>> isPos (10 - 100)
+-- isPos (29 - 45)
+-- isPos (-16)
+-- (\n -> n > 0) (-16)
+-- (-16 > 0)
 -- False
 
-{-
-    isPos (10 - 100)
-    ==>
-    isPos (-90)
-    ==>
-    (-90) > 0
-    ==>
-    False
-
--}
-
-
-isPos :: Int ->  Bool
+isPos :: Int -> Bool
 isPos n = n > 0
 
--- >>> inc 300
--- 301
 
-inc :: Int -> Int
-inc x = x + 1
+adder :: Int -> Int -> Int -> Int
+adder x1 x2 x3 = x1 + x2 + x3
+
+
+alice :: Int -> Int -> Int
+alice = adder 10
+
+charlie :: Int -> Int
+charlie = alice 100
+
+-- charlie 1000
+-- ( alice 100) 1000
+-- ( (adder 10) 100) 1000
+-- 1110
+
+-- >>> charlie 1000
+-- 1110
+
+-- >>> adder 10 20 30
+-- 60
+
+
+
+
+exInteger :: Integer
+exInteger = 12
+
+exInt :: Int
+exInt = 12
+
 
 {-
-    10 * (20 + 30)
-    12 * (45 + 8)
-    19 * (17 + 10)
+
+quiz :: ???
+quiz = \x y -> x + y > 0
+
+
 -}
-
-pat :: Int -> Int -> Int -> Int
--- pat x1 x2 x3 = x1 * (x2 + x3)
--- pat x1 x2 = \x3 -> x1 * (x2 + x3)
--- pat x1 = \x2 -> \x3 -> x1 * (x2 + x3)
--- pat = \x1 -> (\x2 -> (\x3 -> x1 * (x2 + x3)))
--- pat = \x1 x2 x3 -> x1 * (x2 + x3)
-pat x1 x2 x3 = x1 * (x2 + x3)
-
-pat_1_2 :: Int -> Int
-pat_1_2 = pat 10 20
-
-
-myMax :: Int -> Int -> Int
-myMax x y = if x > y then x else y
+-- >>> sumTo 0
+-- 0
+-- >>> sumTo 3
+-- 6
 
 sumTo :: Int -> Int
--- sumTo n = if n == 0 then 0 else n + sumTo (n-1)
-sumTo 0 = 0
-sumTo n = n + sumTo (n-1)
+sumTo n
+  | n == 0    = 0
+  | otherwise = n + sumTo (n-1)
 
+funkyTuple :: ( Char, Int -> Int , Double)
+funkyTuple = ('c', sumTo, 3.4)
 
-
--- >>> pat_1_2 30
--- 500
-
-{-
-
-pat_1_2 30
-==>
-(pat 10 20) 30
-==>...
-10 * (20 + 30)
-==>
-500
-
-
-
-
-pat = \x1 x2 x3 -> x1 * (x2 + x3)
-
-
-
-(((pat 1) 2) 3)
-==> (((\x2 x3 -> 1 * (x2 + x3)) 2) 3)
-==> (((\x3 -> 1 * (2 + x3))) 3)
-==> (((1 * (2 + 3))))
-==> 1 * (2 + 3)
-==> 5
-
--}
-
--- >>> pat 1 2 3
--- 5
-
-
-
-triple :: (Integer, String, Int -> Bool)
-triple = (10,  "20", isPos)
-
-getFst3 :: (t1, t2, t3) -> t1
--- getFst3 t = case t of
---               (x1, _, _) -> x1
-getFst3 (x1,_,_) = x1
-
-getSnd3 :: (t1,t2,t3) -> t2
-getSnd3 t = case t of
-              (_,x2,_) -> x2
-
--- >>> getSnd3 triple
--- "20"
-
--- >>> getSnd3 ("cat", "dog", "horse")
+-- >>> getSnd ("cat", "dog", "nouse")
 -- "dog"
+
+identity :: a -> a
+identity = \x -> x
+
+-- getFst :: (a, b) -> a
+getFst x = case x of
+            (a1, _) -> a1
+
+getSnd :: (a, b) -> b
+getSnd x = case x of
+            (_, a2) -> a2
+
+-- >>> boolToString True
+-- "TRUE"
+-- >>> boolToString False
+-- "FALSE"
+
+
+-- boolToString :: Bool -> String
+-- boolToString b
+--   | b = "TRUE"
+--   | otherwise = "FALSE"
+
+boolToString :: Bool -> String
+boolToString b = case b of
+                    True -> "TRUE"
+                    False -> "FALSE"
+
+ints:: [Int]
+ints = [1,2,2,3,4]
+
+-- >>> 1 : (2 :( 3 : [] ))
+-- [1,2,3]
+
+-- >>> (1 : (2 : (3 : (4 : (5 : [])))))
+-- [1,2,3,4,5]
+
+ilistEmp :: [Int]
+ilistEmp = []
+
+ilist1 :: [Int]
+ilist1 = 1 : ilistEmp
+
+-- >>> copy3 "five"
+-- ["five","five","five"]
+
+-- >>> copy3 92
+-- [92,92,92]
+copy3 :: a -> [a]
+copy3 x = [x, x, x]
+
+
+-- >>> clone 0 "cat"
+-- []
+
+-- >>> clone 1 "cat"
+-- ["cat"]
+
+-- >>> clone 2 "cat"
+-- ["cat","cat"]
+
+-- >>> clone (-3) "cat"
+-- ProgressCancelledException
+
+clone :: Int -> a -> [a]
+clone n x -- = if n <= 0 then [] else x : clone (n-1) x
+  | n <= 0    = []
+  | otherwise = x : clone (n-1) x
