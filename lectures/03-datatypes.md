@@ -8,51 +8,48 @@ headerImg: books.jpg
 
 **Last week:**
 
-  * built-in *data types*
-    - base types, tuples, lists (and strings)
-  * writing functions using *pattern matching* and *recursion*
-  
+- built-in _data types_
+  - base types, tuples, lists (and strings)
+- writing functions using _pattern matching_ and _recursion_
+
 **This week:**
 
 ![](/static/img/trinity.png){#fig:types .align-center width=60%}
 
-  * user-defined *data types*
-    - and how to manipulate them using *pattern matching* and *recursion*
-  * more details about *recursion*
-    
-    
+- user-defined _data types_
+  - and how to manipulate them using _pattern matching_ and _recursion_
+- more details about _recursion_
+
 <br>
 <br>
 <br>
 <br>
 <br>
-<br>    
-    
-    
+<br>
+
 ## Representing complex data
 
 **Previously, we've seen:**
 
-* *base* types: `Bool`, `Int`, `Integer`, `Float`
+- _base_ types: `Bool`, `Int`, `Integer`, `Float`
 
-* some ways to *build up* types: given types `T1, T2`
-  
-    - functions: `T1 -> T2`
-    - tuples: `(T1, T2)`
-    - lists: `[T1]`
-    
+- some ways to _build up_ types: given types `T1, T2`
+
+  - functions: `T1 -> T2`
+  - tuples: `(T1, T2)`
+  - lists: `[T1]`
+
 <br>
-<br>    
-  
-**Next: Algebraic Data Types:** 
+<br>
+
+**Next: Algebraic Data Types:**
 
 A single, powerful way to type complex data
 
-* Lets you define *your own* data types
+- Lets you define _your own_ data types
 
-* Tuples and lists are *special* cases
-    
-    
+- Tuples and lists are _special_ cases
+
 <br>
 <br>
 <br>
@@ -61,7 +58,7 @@ A single, powerful way to type complex data
 <br>
 <br>
 <br>
-<br>        
+<br>
 
 ## Building data types
 
@@ -69,13 +66,12 @@ A single, powerful way to type complex data
 
 Three key ways to build complex types/values:
 
-1. **Product types** (**each-of**): a value of `T` contains a value of `T1` *and* a value of `T2`
+1. **Product types** (**each-of**): a value of `T` contains a value of `T1` _and_ a value of `T2`
 
-2. **Sum types** (**one-of**): a value of `T` contains a value of `T1` *or* a value of `T2`
+2. **Sum types** (**one-of**): a value of `T` contains a value of `T1` _or_ a value of `T2`
 
-3. **Recursive types**: a value of `T` contains a *sub-value* of the same type `T`
-    
-    
+3. **Recursive types**: a value of `T` contains a _sub-value_ of the same type `T`
+
 <br>
 <br>
 <br>
@@ -137,7 +133,6 @@ extendDate = ...
 <br>
 <br>
 
-
 ### 2. Unsafe
 
 We want to catch this error at compile time!!!
@@ -148,7 +143,7 @@ extension deadlineTime
 
 <br>
 
-*Solution:* construct two different **datatypes**
+_Solution:_ construct two different **datatypes**
 
 ```haskell
 data Date    = Date Int Int Int
@@ -175,32 +170,32 @@ deadlineTime = Time 11 59 59
 
 ### Record syntax
 
-Haskell's **record syntax** allows you to *name* the constructor parameters:
+Haskell's **record syntax** allows you to _name_ the constructor parameters:
 
-  * Instead of
+- Instead of
 
-    ```haskell
-    data Date = Date Int Int Int
-    ```
+  ```haskell
+  data Date = Date Int Int Int
+  ```
 
-  * you can write:
+- you can write:
 
-    ```haskell
-    data Date = Date
-      { month :: Int
-      , day   :: Int
-      , year  :: Int  
-      }
-    ```
-    
-  * then you can do:
-  
-    ```haskell
-    deadlineDate = Date 2 4 2019
+  ```haskell
+  data Date = Date
+    { month :: Int
+    , day   :: Int
+    , year  :: Int
+    }
+  ```
 
-    deadlineMonth = month deadlineDate -- use field name as a function
-    ```
-    
+- then you can do:
+
+  ```haskell
+  deadlineDate = Date 2 4 2019
+
+  deadlineMonth = month deadlineDate -- use field name as a function
+  ```
+
 <br>
 <br>
 <br>
@@ -217,12 +212,12 @@ Haskell's **record syntax** allows you to *name* the constructor parameters:
 
 Three key ways to build complex types/values:
 
-1. **Product types** (**each-of**): a value of `T` contains a value of `T1` *and* a value of `T2` **[done]** 
+1. **Product types** (**each-of**): a value of `T` contains a value of `T1` _and_ a value of `T2` **[done]**
 
-2. **Sum types** (**one-of**): a value of `T` contains a value of `T1` *or* a value of `T2`
+2. **Sum types** (**one-of**): a value of `T` contains a value of `T1` _or_ a value of `T2`
 
-3. **Recursive types**: a value of `T` contains a *sub-value* of the same type `T`
-    
+3. **Recursive types**: a value of `T` contains a _sub-value_ of the same type `T`
+
 <br>
 <br>
 <br>
@@ -235,15 +230,15 @@ Three key ways to build complex types/values:
 
 ## Example: NanoMarkdown
 
-Suppose I want to represent a *text document* with simple markup
+Suppose I want to represent a _text document_ with simple markup
 
 Each paragraph is either:
- 
-  * plain text (`String`)
-  * heading: level *and* text (`Int` *and* `String`)
-  * list: ordered? *and* items (`Bool` *and* `[String]`)
-  
-I want to store all paragraphs in a *list*
+
+- plain text (`String`)
+- heading: level _and_ text (`Int` _and_ `String`)
+- list: ordered? _and_ items (`Bool` _and_ `[String]`)
+
+I want to store all paragraphs in a _list_
 
 ```haskell
 doc = [ (1, "Notes from 130")                   -- Level 1 heading
@@ -251,9 +246,9 @@ doc = [ (1, "Notes from 130")                   -- Level 1 heading
       , (True, [ "those people complain about"  -- Ordered list
                , "those no one uses"])
       ]
-```  
+```
 
-But this *does not type check*!!!
+But this _does not type check_!!!
 
 <br>
 <br>
@@ -268,21 +263,21 @@ But this *does not type check*!!!
 ## Sum Types
 
 Solution: construct a new type for paragraphs
-that is a *sum* (*one-of*) the three options!
+that is a _sum_ (_one-of_) the three options!
 
 Each paragraph is either:
 
-* plain text (`String`)
-* heading: level and text  (`Int` and `String`)
-* list: ordered? and items (`Bool` and `[String]`)
-  
+- plain text (`String`)
+- heading: level and text (`Int` and `String`)
+- list: ordered? and items (`Bool` and `[String]`)
+
 ```haskell
 data Paragraph              -- ^ THREE constructors, w/ different parameters
   = PText    String         -- ^ text: plain string
   | PHeading Int   String   -- ^ head: level and text (Int & String)
   | PList    Bool [String]  -- ^ list: ordered? & items (Bool & [String])
 ```
-  
+
 <br>
 <br>
 <br>
@@ -308,22 +303,22 @@ What is the type of `Text "Hey there!"`? i.e. How would GHCi reply to:
 >:t (PText "Hey there!")
 ```
 
-**A.**  Syntax error
+**A.** Syntax error
 
-**B.**  Type error
+**B.** Type error
 
-**C.**  `PText`
+**C.** `PText`
 
-**D.**  `String`
+**D.** `String`
 
-**E.**  `Paragraph`
+**E.** `Paragraph`
 
 <br>
 
-(I) final    
+(I) final
 
     *Answer:* E
-    
+
 <br>
 <br>
 <br>
@@ -334,12 +329,12 @@ What is the type of `Text "Hey there!"`? i.e. How would GHCi reply to:
 <br>
 
 ## Constructing datatypes
-  
+
 ```haskell
 data T
   = C1 T11 ... T1k
   | C2 T21 ... T2l
-  | ... 
+  | ...
   | Cn Tn1 ... Tnm
 ```
 
@@ -351,19 +346,19 @@ data T
 
 A **value** of type `T` is
 
-  * *either* `C1 v1 .. vk` with `vi :: T1i`
-  * *or* `C2 v1 .. vl` with `vi :: T2i`
-  * *or* ...
-  * *or* `Cn v1 .. vm` with `vi :: Tni`
-  
-<br>  
-  
+- _either_ `C1 v1 .. vk` with `vi :: T1i`
+- _or_ `C2 v1 .. vl` with `vi :: T2i`
+- _or_ ...
+- _or_ `Cn v1 .. vm` with `vi :: Tni`
+
+<br>
+
 You can think of a `T` value as a **box**:
 
-  * *either* a box labeled `C1` with values of types `T11 .. T1k` inside
-  * *or* a box labeled `C2` with values of types `T21 .. T2l` inside
-  * *or* ...
-  * *or* a box labeled `Cn` with values of types `Tn1 .. Tnm` inside
+- _either_ a box labeled `C1` with values of types `T11 .. T1k` inside
+- _or_ a box labeled `C2` with values of types `T21 .. T2l` inside
+- _or_ ...
+- _or_ a box labeled `Cn` with values of types `Tn1 .. Tnm` inside
 
 ![One-of Types](/static/img/data-box.png){#fig:types .align-center width=90%}
 
@@ -390,14 +385,14 @@ data Paragraph
   | PHeading Int String
   | PList Bool [String]
 ```
-  
+
 Apply a constructor = pack some values into a box (and label it)
 
-  * `PText "Hey there!"`
-      * put `"Hey there!"` in a box labeled `PText`
-  * `PHeading 1 "Introduction"`
-      * put `1` and `"Introduction"` in a box labeled `PHeading`
-  * Boxes have different labels but same type (`Paragraph`)
+- `PText "Hey there!"`
+  - put `"Hey there!"` in a box labeled `PText`
+- `PHeading 1 "Introduction"`
+  - put `1` and `"Introduction"` in a box labeled `PHeading`
+- Boxes have different labels but same type (`Paragraph`)
 
 ![The `Paragraph` Type](/static/img/data-para-type.png){#fig:types .align-center width=90%}
 
@@ -424,25 +419,28 @@ data Paragraph
   | PList Bool [String]
 ```
 
-What would GHCi say to
+What is the type of
 
 ```haskell
->:t [PHeading 1 "Introduction", PText "Hey there!"]
+
+quiz :: _______________________________________________
+
+quiz =  [PHeading 1 "Introduction", PText "Hey there!"]
 ```
 
-**A.**  Syntax error
+**A.** Syntax error
 
-**B.**  Type error
+**B.** Type error
 
-**C.**  `Paragraph`
+**C.** `Paragraph`
 
-**D.**  `[Paragraph]`
+**D.** `[Paragraph]`
 
-**E.**  `[String]`  
+**E.** `[String]`
 
 <br>
 
-(I) final    
+(I) final
 
     *Answer:* D
 
@@ -489,8 +487,7 @@ doc = [ PHeading 1 "Notes from 130"
 <br>
 <br>
 
-
-## Problem: How to *Convert* Documents to HTML? 
+## Problem: How to _Convert_ Documents to HTML?
 
 How to write a function
 
@@ -504,8 +501,8 @@ html p = ???      -- ^ depends on the kind of paragraph!
 
 How to tell what's in the box?
 
-  * Look at the label!
-  
+- Look at the label!
+
 <br>
 <br>
 <br>
@@ -514,19 +511,19 @@ How to tell what's in the box?
 <br>
 <br>
 <br>
-<br>  
-  
+<br>
+
 ## Pattern matching
 
 **Pattern matching** = looking at the label and extracting values from the box
 
-  * we've seen it before
-  * but now for arbitrary datatypes
-  
+- we've seen it before
+- but now for arbitrary datatypes
+
 ```haskell
 html :: Paragraph -> String
 html p = case p of
-           PText str        -> ...  -- It's a plain text; str :: String 
+           PText str        -> ...  -- It's a plain text; str :: String
            PHeading lvl str -> ...  -- It's a heading;    lvl :: Int, str :: String
            PList ord items  -> ...  -- It's a list;       ord :: Bool, items :: [String]
 ```
@@ -537,18 +534,16 @@ or, we can pull the `case-of` to the "top" as
 
 ```haskell
 html :: Paragraph -> String
-html (PText str)        = ...  -- It's a plain text; str :: String 
+html (PText str)        = ...  -- It's a plain text; str :: String
 html (PHeading lvl str) = ...  -- It's a heading;    lvl :: Int, str :: String
 html (PList ord items)  = ...  -- It's a list;       ord :: Bool, items :: [String]
 ```
 
+<br>
+<br>
+<br>
+<br>
 
-<br>
-<br>
-<br>
-<br> 
-
-  
 ```haskell
 html :: Paragraph -> String
 html (PText str)            -- It's a plain text! Get string
@@ -569,8 +564,8 @@ html (PList ord items)      -- It's a list! Get ordered and items
 <br>
 <br>
 <br>
-<br>  
-  
+<br>
+
 ### Dangers of pattern matching (1)
 
 ```haskell
@@ -587,9 +582,10 @@ html (PHeading 1 "Introduction")
 
 <br>
 
-(I) final    
+(I) final
 
     *Answer:* Runtime error (no matching pattern)
+
 <br>
 <br>
 <br>
@@ -614,7 +610,7 @@ html (PHeading 0 "Introduction")
 
 <br>
 
-(I) final    
+(I) final
 
     *Answer:* `PHeading 0 "Introduction"` will be matched by `PHeading lvl str`
 
@@ -628,8 +624,8 @@ html (PHeading 0 "Introduction")
 
 Beware of **missing** and **overlapped** patterns
 
-  * GHC warns you about *overlapped* patterns
-  * GHC warns you about *missing* patterns when called with `-W` (use `:set -W` in GHCi)
+- GHC warns you about _overlapped_ patterns
+- GHC warns you about _missing_ patterns when called with `-W` (use `:set -W` in GHCi)
 
 <br>
 <br>
@@ -639,17 +635,17 @@ Beware of **missing** and **overlapped** patterns
 <br>
 <br>
 <br>
-<br>  
-  
+<br>
+
 ## Pattern-Match Expression
 
-*Everything is an expression?*
+_Everything is an expression?_
 
 ![](/static/img/trinity.png){#fig:types .align-center width=60%}
 
-We've seen: pattern matching in *equations*
+We've seen: pattern matching in _equations_
 
-Actually, pattern-match is *also an expression*
+Actually, pattern-match is _also an expression_
 
 ```haskell
 html :: Paragraph -> String
@@ -659,7 +655,7 @@ html p = case p of
            PList    ord items -> ...
 ```
 
-The code we saw earlier was *syntactic sugar*
+The code we saw earlier was _syntactic sugar_
 
 ```haskell
 html (C1 x1 ...) = e1
@@ -667,7 +663,7 @@ html (C2 x2 ...) = e2
 html (C3 x3 ...) = e3
 ```
 
-is just for *humans*, internally represented as a `case-of` expression
+is just for _humans_, internally represented as a `case-of` expression
 
 ```haskell
 html p = case p of
@@ -684,29 +680,29 @@ html p = case p of
 <br>
 <br>
 <br>
-<br> 
+<br>
 
 ## QUIZ
 
 What is the **type of**
 
 ```haskell
-let p = Text "Hey there!"
+let p = PText "Hey there!"
 in case p of
     PText    str   -> str
     PHeading lvl _ -> lvl
     PList    ord _ -> ord
 ```
 
-**A.**  Syntax error
+**A.** Syntax error
 
-**B.**  Type error
+**B.** Type error
 
-**C.**  `String`
+**C.** `String`
 
-**D.**  `Paragraph`
+**D.** `Paragraph`
 
-**E.**  `Paragraph -> String`
+**E.** `Paragraph -> String`
 
 <br>
 
@@ -737,11 +733,11 @@ case e of
 
 has type `T` if
 
-  * each `e1`...`eN` has type `T`
-  * `e` has some type `D`
-  * each `pattern1`...`patternN` is a *valid pattern* for `D`    
-      * i.e. a variable or a constructor of `D` applied to other patterns
-      
+- each `e1`...`eN` has type `T`
+- `e` has some type `D`
+- each `pattern1`...`patternN` is a _valid pattern_ for `D`
+  - i.e. a variable or a constructor of `D` applied to other patterns
+
 The expression `e` is called the **match scrutinee**
 
 <br>
@@ -752,29 +748,29 @@ The expression `e` is called the **match scrutinee**
 <br>
 <br>
 <br>
-<br>  
+<br>
 
 ## QUIZ
 
 What is the type of
 
 ```haskell
-let p = Text "Hey there!"
+let p = PText "Hey there!"
 in case p of
     PText _      -> 1
     PHeading _ _ -> 2
     PList _ _    -> 3
 ```
 
-**A.**  Syntax error
+**A.** Syntax error
 
-**B.**  Type error
+**B.** Type error
 
-**C.**  `Paragraph`
+**C.** `Paragraph`
 
-**D.**  `Int`
+**D.** `Int`
 
-**E.**  `Paragraph -> Int`
+**E.** `Paragraph -> Int`
 
 <br>
 
@@ -793,7 +789,6 @@ in case p of
 
 ## Building data types
 
-
 <br>
 
 ![](/static/img/trinity.png){#fig:types .align-center width=60%}
@@ -802,15 +797,15 @@ in case p of
 
 Three key ways to build complex types/values:
 
-1. **Product types** (**each-of**): a value of `T` contains a value of `T1` *and* a value of `T2` **[done]**
+1. **Product types** (**each-of**): a value of `T` contains a value of `T1` _and_ a value of `T2` **[done]**
 
-    * Cartesian *product* of two sets: $v(T) = v(T1) \times v(T2)$
+   - Cartesian _product_ of two sets: $v(T) = v(T1) \times v(T2)$
 
-2. **Sum types** (**one-of**): a value of `T` contains a value of `T1` *or* a value of `T2` **[done]**
+2. **Sum types** (**one-of**): a value of `T` contains a value of `T1` _or_ a value of `T2` **[done]**
 
-    * Union (*sum*) of two sets: $v(T) = v(T1) \cup v(T2)$
+   - Union (_sum_) of two sets: $v(T) = v(T1) \cup v(T2)$
 
-3. **Recursive types**: a value of `T` contains a *sub-value* of the same type `T`
+3. **Recursive types**: a value of `T` contains a _sub-value_ of the same type `T`
 
 <br>
 <br>
@@ -844,11 +839,11 @@ data Nat = Zero | Succ Nat
 
 A `Nat` value is:
 
-  * either an *empty* box labeled `Zero`
-  * or a box labeled `Succ` with another `Nat` in it!
-  
-Some `Nat` values:  
-  
+- either an _empty_ box labeled `Zero`
+- or a box labeled `Succ` with another `Nat` in it!
+
+Some `Nat` values:
+
 ```haskell
 Zero                     -- 0
 Succ Zero                -- 1
@@ -870,7 +865,6 @@ Succ (Succ (Succ Zero))  -- 3
 ## Functions on recursive types
 
 **Recursive code mirrors recursive data**
-
 
 ### 1. Recursive type as a parameter
 
@@ -899,7 +893,7 @@ toInt (Succ n) = ... -- inductive case
 
 **Step 2:** fill in inductive case using a recursive call:
 
-```
+```haskell
 toInt :: Nat -> Int
 toInt Zero     = 0           -- base case
 toInt (Succ n) = 1 + toInt n -- inductive case
@@ -913,26 +907,27 @@ toInt (Succ n) = 1 + toInt n -- inductive case
 <br>
 <br>
 <br>
-<br>  
+<br>
 
 ## QUIZ
 
-What does this evaluate to?
+What does `quiz` evaluate to?
 
 ```haskell
-let foo i = if i <= 0 then Zero else Succ (foo (i - 1))
-in foo 2 
+foo i = if i <= 0 then Zero else Succ (foo (i - 1))
+
+quiz = foo 2
 ```
 
-**A.**  Syntax error
+**A.** Syntax error
 
-**B.**  Type error
+**B.** Type error
 
-**C.**  `2`
+**C.** `2`
 
-**D.**  `Succ Zero`
+**D.** `Succ Zero`
 
-**E.**  `Succ (Succ Zero)`
+**E.** `Succ (Succ Zero)`
 
 <br>
 
@@ -949,14 +944,13 @@ in foo 2
 <br>
 <br>
 
-
 ### 2. Recursive type as a result
 
 ```haskell
 data Nat = Zero     -- base constructor
          | Succ Nat -- inductive constructor
 
-         
+
 fromInt :: Int -> Nat
 fromInt n
   | n <= 0    = Zero                   -- base case
@@ -971,14 +965,13 @@ fromInt n
 <br>
 <br>
 
-
 ## EXERCISE: Putting the two together
 
 ```haskell
 data Nat = Zero     -- base constructor
          | Succ Nat -- inductive constructor
 
-         
+
 add :: Nat -> Nat -> Nat
 add n m = ???
 
@@ -1002,7 +995,7 @@ sub n m = ???
 data Nat = Zero     -- base constructor
          | Succ Nat -- inductive constructor
 
-         
+
 add :: Nat -> Nat -> Nat
 add n m = ???
 ```
@@ -1021,7 +1014,7 @@ add n m = ???
 data Nat = Zero     -- base constructor
          | Succ Nat -- inductive constructor
 
-         
+
 add :: Nat -> Nat -> Nat
 add Zero     m = ???            -- base case
 add (Succ n) m = ???            -- inductive case
@@ -1074,12 +1067,11 @@ sub (Succ n) (Succ m) = ???     -- inductive case
 <br>
 <br>
 
-
 ## Lesson: Recursive code mirrors recursive data
 
-* Which of **multiple** arguments should you recurse on? 
+- Which of **multiple** arguments should you recurse on?
 
-* Key: Pick the right **inductive strategy**!
+- Key: Pick the right **inductive strategy**!
 
 <br>
 
@@ -1095,17 +1087,16 @@ sub (Succ n) (Succ m) = ???     -- inductive case
 <br>
 <br>
 
-
 ## Example: Calculator
 
-I want to implement an arithmetic calculator 
+I want to implement an arithmetic calculator
 to evaluate expressions like:
 
-* `4.0 + 2.9`
-* `3.78 – 5.92`
-* `(4.0 + 2.9) * (3.78 - 5.92)`
+- `4.0 + 2.9`
+- `3.78 – 5.92`
+- `(4.0 + 2.9) * (3.78 - 5.92)`
 
-What is a Haskell datatype to *represent* these expressions?
+What is a Haskell datatype to _represent_ these expressions?
 
 ```haskell
 data Expr = ???
@@ -1146,10 +1137,9 @@ e2 = Mul e0 e1
 <br>
 <br>
 
-## EXERCISE: Expression Evaluator 
+## EXERCISE: Expression Evaluator
 
-Write a function to *evaluate* an expression.
-
+Write a function to _evaluate_ an expression.
 
 ```haskell
 -- >>> eval (Add (Num 4.0)  (Num 2.9))
@@ -1158,7 +1148,7 @@ Write a function to *evaluate* an expression.
 eval :: Expr -> Float
 eval e = ???
 ```
-    
+
 (I) final
 
     ```haskell
@@ -1180,13 +1170,13 @@ eval e = ???
 
 ## Recursion is...
 
-Building solutions for *big problems*
-from solutions for *sub-problems*
+Building solutions for _big problems_
+from solutions for _sub-problems_
 
-  - **Base case:** what is the *simplest version* of this problem and how do I solve it?
-  - **Inductive strategy:** how do I *break down* this problem into sub-problems?
-  - **Inductive case:** how do I solve the problem *given* the solutions for subproblems?
-  
+- **Base case:** what is the _simplest version_ of this problem and how do I solve it?
+- **Inductive strategy:** how do I _break down_ this problem into sub-problems?
+- **Inductive case:** how do I solve the problem _given_ the solutions for subproblems?
+
 <br>
 <br>
 <br>
@@ -1198,17 +1188,17 @@ from solutions for *sub-problems*
 
 ## Lists
 
-Lists aren't built-in! They are an *algebraic data type* like any other:
+Lists aren't built-in! They are an _algebraic data type_ like any other:
 
 ```haskell
-data List 
+data List
   = Nil           -- ^ base constructor
   | Cons Int List -- ^ inductive constructor
 ```
 
-* List `[1, 2, 3]` is *represented* as `Cons 1 (Cons 2 (Cons 3 Nil))`
+- List `[1, 2, 3]` is _represented_ as `Cons 1 (Cons 2 (Cons 3 Nil))`
 
-* Built-in list constructors `[]` and `(:)`
+- Built-in list constructors `[]` and `(:)`
   are just fancy syntax for `Nil` and `Cons`
 
 <br>
@@ -1235,7 +1225,7 @@ length (Cons _ xs) = 1 + length xs  -- inductive case
 
 ## EXERCISE: Appending Lists
 
-What is the right *inductive strategy* for appending two lists?
+What is the right _inductive strategy_ for appending two lists?
 
 ```haskell
 -- >>> append (Cons 1 (Cons 2 (Cons 3 Nil))) (Cons 4 (Cons 5 (Cons 6 Nil)))
@@ -1243,20 +1233,19 @@ What is the right *inductive strategy* for appending two lists?
 ```
 
 (I) lecture
-    
+
     ```haskell
     append :: List -> List -> List
     append xs ys = ??
     ```
-    
+
 (I) final
-    
+
     ```haskell
     append :: List -> List -> List
     append Nil ys = ys
-    append (Cons x xs) ys = Cons x (append xs ys)    
+    append (Cons x xs) ys = Cons x (append xs ys)
     ```
-    
 
 <br>
 <br>
@@ -1270,17 +1259,15 @@ What is the right *inductive strategy* for appending two lists?
 
 ## Trees
 
-Lists are *unary trees* with elements stored in the nodes:
-
+Lists are _unary trees_ with elements stored in the nodes:
 
 ![Lists are unary trees](/static/img/list-tree.png){#fig:types .align-center width=90%}
-
 
 ```haskell
 data List = Nil | Cons Int List
 ```
 
-How do we represent *binary trees* with elements stored in the nodes?
+How do we represent _binary trees_ with elements stored in the nodes?
 
 ![Binary trees with data at nodes](/static/img/tree-data-node.png){#fig:types .align-center width=90%}
 
@@ -1296,7 +1283,7 @@ How do we represent *binary trees* with elements stored in the nodes?
 
 ## QUIZ: Binary trees I
 
-What is a Haskell datatype for *binary trees* with elements stored in the nodes?
+What is a Haskell datatype for _binary trees_ with elements stored in the nodes?
 
 ![Binary trees with data at nodes](/static/img/tree-data-node.png){#fig:types .align-center width=90%}
 
@@ -1315,7 +1302,6 @@ What is a Haskell datatype for *binary trees* with elements stored in the nodes?
 (I) final
 
     *Answer:* C
-    
 
 <br>
 <br>
@@ -1325,15 +1311,15 @@ What is a Haskell datatype for *binary trees* with elements stored in the nodes?
 <br>
 <br>
 <br>
-<br>  
+<br>
 
 ![Binary trees with data at nodes](/static/img/tree-data-node.png){#fig:types .align-center width=90%}
 
 ```haskell
 data Tree = Leaf | Node Int Tree Tree
 
-t1234 = Node 1 
-          (Node 2 (Node 3 Leaf Leaf) Leaf) 
+t1234 = Node 1
+          (Node 2 (Node 3 Leaf Leaf) Leaf)
           (Node 4 Leaf Leaf)
 ```
 
@@ -1351,9 +1337,9 @@ t1234 = Node 1
 depth :: Tree -> Int
 depth t = ??
 ```
-    
+
 (I) final
-    
+
     ```haskell
     depth :: Tree -> Int
     depth Leaf = 0
@@ -1370,10 +1356,9 @@ depth t = ??
 
 ## QUIZ: Binary trees II
 
-What is a Haskell datatype for *binary trees* with elements stored in the leaves?
-    
-![Binary trees with data at leaves](/static/img/tree-data-leaf.png){#fig:types .align-center width=90%}
+What is a Haskell datatype for _binary trees_ with elements stored in the leaves?
 
+![Binary trees with data at leaves](/static/img/tree-data-leaf.png){#fig:types .align-center width=90%}
 
 **(A)** `data Tree = Leaf | Node Int Tree`
 
@@ -1407,7 +1392,6 @@ t12345 = Node
           (Node (Leaf 4) (Leaf 5))
 ```
 
-
 <br>
 <br>
 <br>
@@ -1417,29 +1401,25 @@ t12345 = Node
 <br>
 <br>
 <br>
-
-
-
 
 ## Why use Recursion?
 
-1. Often far simpler and cleaner than loops 
+1. Often far simpler and cleaner than loops
 
-    - But not always...
-    
+   - But not always...
+
 2. Structure often forced by recursive data
 
-2. Forces you to factor code into reusable units (recursive functions)
-    
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+3. Forces you to factor code into reusable units (recursive functions)
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ## Why **not** use Recursion?
 
@@ -1454,7 +1434,7 @@ t12345 = Node
 <br>
 <br>
 <br>
-<br>    
+<br>
 
 ## Example: factorial
 
@@ -1475,19 +1455,20 @@ Lets see how `fac 4` is evaluated:
   ==> <4 * <fac 3>>              -- recursively call `fact 3`
   ==> <4 * <3 * <fac 2>>>        --   recursively call `fact 2`
   ==> <4 * <3 * <2 * <fac 1>>>>  --     recursively call `fact 1`
-  ==> <4 * <3 * <2 * 1>>>        --     multiply 2 to result 
+  ==> <4 * <3 * <2 * 1>>>        --     multiply 2 to result
   ==> <4 * <3 * 2>>              --   multiply 3 to result
   ==> <4 * 6>                    -- multiply 4 to result
   ==> 24
 ```
+
 <br>
 <br>
 
-Each *function call* `<>` allocates a frame on the *call stack*
+Each _function call_ `<>` allocates a frame on the _call stack_
 
-  - expensive
-  - the stack has a finite size
-  
+- expensive
+- the stack has a finite size
+
 Can we do recursion without allocating stack frames?
 
 <br>
@@ -1499,19 +1480,18 @@ Can we do recursion without allocating stack frames?
 <br>
 <br>
 
-
 ## Tail Recursion
 
-Recursive call is the *top-most* sub-expression in the function body
+Recursive call is the _top-most_ sub-expression in the function body
 
-  - i.e. no computations allowed on recursively returned value 
+- i.e. no computations allowed on recursively returned value
 
-  - i.e. value returned by the recursive call == value returned by function
-  
+- i.e. value returned by the recursive call == value returned by function
+
 <br>
 <br>
 
-### QUIZ: Is this function tail recursive? 
+### QUIZ: Is this function tail recursive?
 
 ```haskell
 fac :: Int -> Int
@@ -1529,7 +1509,7 @@ fac n
 (I) final
 
     *Answer:* B
-    
+
 <br>
 <br>
 <br>
@@ -1546,7 +1526,7 @@ Let's write a tail-recursive factorial!
 
     ```haskell
     facTR :: Int -> Int
-    facTR n = ... 
+    facTR n = ...
     ```
 
 **HINT:** Lets first write it with a `loop`
@@ -1561,33 +1541,32 @@ Let's write a tail-recursive factorial!
         loop acc n
           | n <= 1    = acc
           | otherwise = loop (acc * n) (n - 1)
-    ```      
-      
+    ```
+
 <br>
 <br>
 <br>
-<br>    
+<br>
 
 Lets see how `facTR` is evaluated:
-
 
 ```haskell
 <facTR 4>
   ==>    <<loop 1  4>> -- call loop 1 4
-  ==>   <<<loop 4  3>>> -- rec call loop 4 3 
+  ==>   <<<loop 4  3>>> -- rec call loop 4 3
   ==>  <<<<loop 12 2>>>> -- rec call loop 12 2
   ==> <<<<<loop 24 1>>>>> -- rec call loop 24 1
-  ==> 24                  -- return result 24! 
+  ==> 24                  -- return result 24!
 ```
 
-Each recursive call **directly** returns the result 
+Each recursive call **directly** returns the result
 
-  - without further computation
+- without further computation
 
-  - no need to remember what to do next!
-  
-  - no need to store the "empty" stack frames!
-    
+- no need to remember what to do next!
+
+- no need to store the "empty" stack frames!
+
 <br>
 <br>
 <br>
@@ -1595,7 +1574,7 @@ Each recursive call **directly** returns the result
 <br>
 <br>
 <br>
-<br>  
+<br>
 
 ## Why care about Tail Recursion?
 
@@ -1611,23 +1590,27 @@ facTR n = loop 1 n
 
 <br>
 
-```javascript 
-function facTR(n){ 
+```javascript
+function facTR(n) {
   var acc = 1;
   while (true) {
-    if (n <= 1) { return acc ; }
-    else        { acc = acc * n; n = n - 1; }
+    if (n <= 1) {
+      return acc;
+    } else {
+      acc = acc * n;
+      n = n - 1;
+    }
   }
 }
 ```
 
 - Tail recursive calls can be optimized as a **loop**
 
-    - no stack frames needed! 
+  - no stack frames needed!
 
 - Part of the language specification of most functional languages
 
-    - compiler **guarantees** to optimize tail calls
+  - compiler **guarantees** to optimize tail calls
 
 <br>
 <br>
@@ -1636,4 +1619,3 @@ function facTR(n){
 <br>
 
 That's all folks!
-  
