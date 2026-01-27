@@ -479,6 +479,7 @@ if (window.navigator.appName == "Microsoft Internet Explorer") {
 <li>but <code class="sourceCode haskell"><span class="dt">X</span> <span class="ot">=</span> taco</code> holds is we replace <code class="sourceCode haskell">[<span class="dt">X</span> <span class="ot">=</span> taco]</code></li>
 <li>what about <code class="sourceCode haskell"><span class="dt">Alice</span> <span class="ot">=</span> taco</code>?</li>
 </ul>
+<hr />
 <p><br>
 <br>
 <br>
@@ -543,6 +544,7 @@ we would <em>represent</em> terms like so:</p>
 <p><strong>D.</strong> <code class="sourceCode haskell"><span class="dt">Compound</span> <span class="st">&quot;parent&quot;</span> [<span class="dt">Atom</span> <span class="st">&quot;alice&quot;</span>, <span class="dt">Var</span> <span class="st">&quot;Bob&quot;</span>]</code></p>
 <p><strong>E.</strong> <code class="sourceCode haskell"><span class="dt">Compound</span> (<span class="dt">Atom</span> <span class="st">&quot;parent&quot;</span>) [<span class="dt">Atom</span> <span class="st">&quot;alice&quot;</span>, <span class="dt">Var</span> <span class="st">&quot;Bob&quot;</span>]</code></p>
 <p><br></p>
+<hr />
 <p><br>
 <br>
 <br>
@@ -564,6 +566,7 @@ we would <em>represent</em> terms like so:</p>
 <p><strong>D.</strong> <code class="sourceCode haskell"><span class="dt">Num</span> <span class="dv">120</span></code></p>
 <p><strong>E.</strong> <code class="sourceCode haskell"><span class="dt">Compound</span> <span class="st">&quot;factorial&quot;</span> [<span class="dt">Num</span> <span class="dv">5</span>]</code></p>
 <p><br></p>
+<hr />
 <p><br>
 <br>
 <br>
@@ -791,6 +794,7 @@ which we type into a prompt</p>
 <p><strong>D.</strong> <code class="sourceCode haskell">parent(<span class="dt">X</span>, <span class="dt">Y</span>)</code></p>
 <p><strong>E.</strong> <code class="sourceCode haskell">parent(<span class="dt">Y</span>, <span class="dt">X</span>)</code></p>
 <p><br></p>
+<hr />
 <p><br>
 <br>
 <br>
@@ -805,6 +809,7 @@ which we type into a prompt</p>
 <blockquote>
 <p>Does there exist <strong>any</strong> person who has more than one child?</p>
 </blockquote>
+<hr />
 <p><br>
 <br>
 <br>
@@ -946,6 +951,7 @@ when we can <em>substitute</em> values for their <em>variables</em> to make them
 <p><strong>D.</strong> <code class="sourceCode haskell"><span class="dt">X</span> <span class="ot">=</span> dog, <span class="dt">Y</span> <span class="ot">=</span> cat<span class="op">.</span></code></p>
 <p><strong>E.</strong> <code class="sourceCode haskell"><span class="dt">X</span> <span class="ot">=</span> cat, <span class="dt">Y</span> <span class="ot">=</span> dog<span class="op">.</span></code></p>
 <p><br></p>
+<hr />
 <p><br>
 <br>
 <br>
@@ -963,6 +969,7 @@ when we can <em>substitute</em> values for their <em>variables</em> to make them
 <p><strong>D.</strong> <code class="sourceCode haskell"><span class="dt">X</span> <span class="ot">=</span> dog, <span class="dt">Y</span> <span class="ot">=</span> cat<span class="op">.</span></code></p>
 <p><strong>E.</strong> <code class="sourceCode haskell"><span class="dt">X</span> <span class="ot">=</span> cat, <span class="dt">Y</span> <span class="ot">=</span> dog<span class="op">.</span></code></p>
 <p><br></p>
+<hr />
 <p><br>
 <br>
 <br>
@@ -1014,17 +1021,17 @@ when we can <em>substitute</em> values for their <em>variables</em> to make them
 <p>It’s the same thing, except!</p>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Unification in Nano</th>
 <th>Unification in Prolog</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>on two <em>types</em></td>
 <td>on two <em>terms</em></td>
 </tr>
-<tr class="even">
+<tr>
 <td>is a pain to implement</td>
 <td>is built-in</td>
 </tr>
@@ -1045,6 +1052,7 @@ we wouldn’t have to implement <code class="sourceCode haskell">unify</code>, w
 <span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="fu">?-</span> <span class="dt">A</span> <span class="kw">=</span> funT(<span class="dt">A</span><span class="kw">,</span><span class="dt">A</span>)<span class="kw">.</span></span>
 <span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>???</span></code></pre></div>
+<hr />
 <p><br>
 <br>
 <br>
@@ -1156,6 +1164,7 @@ we wouldn’t have to implement <code class="sourceCode haskell">unify</code>, w
 <p><strong>C.</strong> <code class="sourceCode haskell">parent(<span class="dt">X</span>, <span class="dt">Z</span>), parent(<span class="dt">Y</span>, <span class="dt">Z</span>), <span class="dt">X</span> \<span class="ot">=</span> <span class="dt">Y</span><span class="op">.</span></code></p>
 <p><strong>D.</strong> <code class="sourceCode haskell">parent(<span class="dt">Z</span>, <span class="dt">X</span>), parent(<span class="dt">Z</span>, <span class="dt">Y</span>), <span class="dt">X</span> \<span class="ot">=</span> <span class="dt">Y</span><span class="op">.</span></code></p>
 <p><br></p>
+<hr />
 <p><br>
 <br>
 <br>
@@ -1237,6 +1246,7 @@ we wouldn’t have to implement <code class="sourceCode haskell">unify</code>, w
 <p><strong>D.</strong> <code class="sourceCode haskell">greatgrandparent(<span class="dt">X</span>, <span class="dt">Y</span>) <span class="op">:-</span> parent(<span class="dt">X</span>, <span class="dt">Z</span>), parent(<span class="dt">Z</span>, <span class="dt">Y</span>)<span class="op">.</span></code></p>
 <p><strong>E.</strong> <code class="sourceCode haskell">greatgrandparent(<span class="dt">X</span>, <span class="dt">Y</span>) <span class="op">:-</span> parent(<span class="dt">X</span>, <span class="dt">Z1</span>), parent(<span class="dt">Z1</span>, <span class="dt">Z2</span>), parent(<span class="dt">Z2</span>, <span class="dt">Y</span>)<span class="op">.</span></code></p>
 <p><br></p>
+<hr />
 <p><br>
 <br>
 <br>
@@ -1331,6 +1341,7 @@ we wouldn’t have to implement <code class="sourceCode haskell">unify</code>, w
 <p>In the <code class="sourceCode haskell">grandparent</code> rule, the variable <code class="sourceCode haskell"><span class="dt">GP</span></code> appears <em>twice</em>:</p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode prolog"><code class="sourceCode prolog"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>greatgrandparent(<span class="dt">GGP</span><span class="kw">,</span> <span class="dt">GC</span>) <span class="kw">:-</span> parent(<span class="dt">GGP</span><span class="kw">,</span> <span class="dt">GP</span>)<span class="kw">,</span> grandparent(<span class="dt">GP</span><span class="kw">,</span> <span class="dt">GC</span>)<span class="kw">.</span></span></code></pre></div>
 <p>Is it the same <code class="sourceCode haskell"><span class="dt">GP</span></code>?</p>
+<hr />
 <p><br>
 <br>
 <br>
@@ -1339,6 +1350,7 @@ we wouldn’t have to implement <code class="sourceCode haskell">unify</code>, w
 <div class="sourceCode" id="cb36"><pre class="sourceCode prolog"><code class="sourceCode prolog"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>isDelicious(<span class="dt">X</span>)  <span class="kw">:-</span> isMexican(<span class="dt">X</span>)<span class="kw">.</span></span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>isVegetarian(<span class="dt">X</span>) <span class="kw">:-</span> isVegan(<span class="dt">X</span>)<span class="kw">.</span></span></code></pre></div>
 <p>Is is the same <code class="sourceCode haskell"><span class="dt">X</span></code>?</p>
+<hr />
 <p><br>
 <br>
 <br>
@@ -1653,6 +1665,7 @@ every time the second rule for <code class="sourceCode haskell">ancestor</code> 
 <span id="cb50-14"><a href="#cb50-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb50-15"><a href="#cb50-15" aria-hidden="true" tabindex="-1"></a><span class="co">% E: None of the above</span></span></code></pre></div>
 <p><br></p>
+<hr />
 <p><br>
 <br>
 <br>
@@ -1716,6 +1729,7 @@ every time the second rule for <code class="sourceCode haskell">ancestor</code> 
 <span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a><span class="co">% C</span></span>
 <span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a>sibling(<span class="dt">X</span><span class="kw">,</span> <span class="dt">Y</span>) <span class="kw">:-</span> not(<span class="dt">X</span> <span class="kw">=</span> <span class="dt">Y</span>)<span class="kw">,</span> parent(<span class="dt">P</span><span class="kw">,</span> <span class="dt">X</span>)<span class="kw">,</span> parent(<span class="dt">P</span><span class="kw">,</span> <span class="dt">Y</span>)<span class="kw">.</span></span></code></pre></div>
 <p><br></p>
+<hr />
 <p><br>
 <br>
 <br>
@@ -1865,6 +1879,7 @@ every time the second rule for <code class="sourceCode haskell">ancestor</code> 
 <span id="cb64-13"><a href="#cb64-13" aria-hidden="true" tabindex="-1"></a><span class="co">% E</span></span>
 <span id="cb64-14"><a href="#cb64-14" aria-hidden="true" tabindex="-1"></a>addP(<span class="dt">X</span><span class="kw">,</span> <span class="dt">Y</span><span class="kw">,</span> <span class="dt">Z</span>) <span class="kw">:-</span> <span class="dt">X</span> <span class="fu">+</span> <span class="dt">Y</span> <span class="dt">is</span> <span class="dt">Z</span><span class="kw">.</span></span></code></pre></div>
 <p><br></p>
+<hr />
 <p><br>
 <br>
 <br>
@@ -1933,6 +1948,7 @@ the function <code class="sourceCode haskell">foo <span class="dt">X</span> <spa
 <span id="cb70-14"><a href="#cb70-14" aria-hidden="true" tabindex="-1"></a>fact(<span class="dt">N</span><span class="kw">,</span><span class="dt">R</span>) <span class="kw">:-</span> <span class="dv">1</span> <span class="dt">&lt;</span> <span class="dt">N</span><span class="kw">,</span> <span class="dt">N1</span> <span class="dt">is</span> <span class="dt">N</span><span class="dv">-1</span><span class="kw">,</span> fact(<span class="dt">N1</span><span class="kw">,</span><span class="dt">R1</span>)<span class="kw">,</span> <span class="dt">R</span> <span class="dt">is</span> <span class="dt">N*R1</span><span class="kw">.</span></span>
 <span id="cb70-15"><a href="#cb70-15" aria-hidden="true" tabindex="-1"></a>fact(<span class="dt">N</span><span class="kw">,</span><span class="dv">1</span>) <span class="kw">:-</span> <span class="dt">N</span> <span class="dt">&lt;</span> <span class="dv">2</span><span class="kw">.</span></span></code></pre></div>
 <p><br></p>
+<hr />
 <p><br>
 <br>
 <br>
@@ -2008,6 +2024,7 @@ the function <code class="sourceCode haskell">foo <span class="dt">X</span> <spa
 <p><strong>D.</strong> <code class="sourceCode haskell">hasThreeOrMore([_,_,_,_<span class="op">|</span>_])<span class="op">.</span></code></p>
 <p><strong>E.</strong> <code class="sourceCode haskell">hasThreeOrMore([_,_,_])<span class="op">.</span></code></p>
 <p><br></p>
+<hr />
 <p><br>
 <br>
 <br>
@@ -2102,8 +2119,8 @@ the function <code class="sourceCode haskell">foo <span class="dt">X</span> <spa
 <br>
 <br></p>
 <h2 id="farmer-wolf-goat-cabbage">Farmer, Wolf, Goat, Cabbage</h2>
-<figure>
-<img src="../static/img/logic_boat.png" id="fig:puzzle" class="align-center" alt="The real puzzle" />
+<figure id="fig:puzzle">
+<img src="../static/img/logic_boat.png" class="align-center" alt="The real puzzle" />
 <figcaption aria-hidden="true">The real puzzle</figcaption>
 </figure>
 <p>Farmer needs to end up on the east bank of the river.</p>
@@ -2211,6 +2228,7 @@ and collect all solutions in a list.</p>
 <p><br>
 <br></p>
 <p>How do we find all <em>unique</em> solutions to the farmer puzzle?</p>
+<hr />
 <p><br>
 <br>
 <br>

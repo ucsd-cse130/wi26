@@ -277,6 +277,7 @@ if (window.navigator.appName == "Microsoft Internet Explorer") {
 <p><strong>(D)</strong> <code class="sourceCode haskell">\x <span class="ot">-&gt;</span> \y <span class="ot">-&gt;</span> x y</code></p>
 <p><strong>(E)</strong> <code class="sourceCode haskell">\x <span class="ot">-&gt;</span> x x</code></p>
 <p><br></p>
+<hr />
 <p><br>
 <br>
 <br>
@@ -397,10 +398,12 @@ which maps all its <em>free variables</em> to their <em>types</em></p>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>[<span class="op">?</span>]   <span class="co">-----------------------------------------------</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        [] <span class="op">|-</span> <span class="kw">let</span> x <span class="ot">=</span> <span class="dv">1</span> <span class="kw">in</span> x <span class="op">+</span> <span class="dv">2</span><span class="ot"> ::</span> <span class="dt">Int</span></span></code></pre></div>
 <p>But we <em>cannot</em> derive: <code class="sourceCode haskell">[] <span class="op">|-</span> <span class="kw">let</span> x <span class="ot">=</span> \y <span class="ot">-&gt;</span> y <span class="kw">in</span> x <span class="op">+</span> <span class="dv">2</span><span class="ot"> ::</span> <span class="dt">T</span></code> for any type <code class="sourceCode haskell"><span class="dt">T</span></code></p>
+<hr />
 <p><br>
 <br></p>
 <p><strong>Example 3</strong>:</p>
 <p>We cannot derive: <code class="sourceCode haskell">[] <span class="op">|-</span> (\x <span class="ot">-&gt;</span> x x)<span class="ot"> ::</span> <span class="dt">T</span></code> for any type <code class="sourceCode haskell"><span class="dt">T</span></code></p>
+<hr />
 <p><br>
 <br>
 <br>
@@ -414,6 +417,7 @@ which maps all its <em>free variables</em> to their <em>types</em></p>
 <ul>
 <li>examples?</li>
 </ul>
+<hr />
 <p><br>
 <br>
 <br>
@@ -452,6 +456,7 @@ which maps all its <em>free variables</em> to their <em>types</em></p>
 <p><strong>(C)</strong> Me: nope, rules: okay</p>
 <p><strong>(D)</strong> Me: nope, rules: nope</p>
 <p><br></p>
+<hr />
 <h2 id="double-identity">Double identity</h2>
 <div class="sourceCode" id="cb8"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> <span class="fu">id</span> <span class="ot">=</span> \x <span class="ot">-&gt;</span> x <span class="kw">in</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> y <span class="ot">=</span> <span class="fu">id</span> <span class="dv">5</span> <span class="kw">in</span></span>
@@ -572,6 +577,7 @@ which maps all its <em>free variables</em> to their <em>types</em></p>
 <p><strong>(C)</strong> Error: no mapping for type variable <code class="sourceCode haskell">d</code></p>
 <p><strong>(D)</strong> Error: type variable <code class="sourceCode haskell">a</code> is unused</p>
 <p><br></p>
+<hr />
 <p><br>
 <br>
 <br>
@@ -632,6 +638,7 @@ which maps all its <em>free variables</em> to their <em>types</em></p>
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>        [] <span class="op">|-</span> \x <span class="ot">-&gt; x ::</span> <span class="kw">forall</span> a <span class="op">.</span> a <span class="ot">-&gt;</span> a</span></code></pre></div>
 <p><br></p>
 <p>Can we derive: <code class="sourceCode haskell">[x<span class="op">:</span>a] <span class="op">|-</span><span class="ot"> x ::</span> <span class="kw">forall</span> a <span class="op">.</span> a</code>?</p>
+<hr />
 <p><br>
 <br></p>
 <p><strong>Example 2</strong></p>
@@ -941,6 +948,7 @@ find a type substitution <code class="sourceCode haskell"><span class="dt">U</sp
 <p><strong>(D)</strong> <code class="sourceCode haskell"><span class="dv">1</span> <span class="op">+</span> (\x <span class="ot">-&gt;</span> x)</code></p>
 <p><strong>(E)</strong> <code class="sourceCode haskell">\x <span class="ot">-&gt;</span> x <span class="op">+</span> x <span class="dv">5</span></code></p>
 <p><br></p>
+<hr />
 <p><br>
 <br>
 <br>
@@ -971,6 +979,7 @@ find a type substitution <code class="sourceCode haskell"><span class="dt">U</sp
 <p><br>
 <br></p>
 <p>Can we do that in Haskell?</p>
+<hr />
 <p><br>
 <br>
 <br>

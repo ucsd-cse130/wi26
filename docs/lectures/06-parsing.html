@@ -314,14 +314,14 @@ we are used to writing programs as text!</p>
 <br></p>
 <h3 id="step-1-lexing-from-string-to-tokens">Step 1 (Lexing) : From String to Tokens</h3>
 <p>A string is a list of <em>characters</em>:</p>
-<figure>
-<img src="../static/img/info_parser.001a.jpg" id="fig:chars" style="width:70.0%" alt="Characters" />
+<figure id="fig:chars">
+<img src="../static/img/info_parser.001a.jpg" style="width:70.0%" alt="Characters" />
 <figcaption aria-hidden="true">Characters</figcaption>
 </figure>
 <p>First we aggregate characters that “belong together”
 into <strong>tokens</strong> (i.e. the “words” of the program):</p>
-<figure>
-<img src="../static/img/info_parser.001b.jpg" id="fig:tokens" style="width:70.0%" alt="Tokens" />
+<figure id="fig:tokens">
+<img src="../static/img/info_parser.001b.jpg" style="width:70.0%" alt="Tokens" />
 <figcaption aria-hidden="true">Tokens</figcaption>
 </figure>
 <p>We distinguish tokens of different kinds based on their format:</p>
@@ -452,6 +452,7 @@ so we only care about how to describe the token format and the grammar</p>
 <p><strong>(D)</strong> <code class="sourceCode haskell">x</code></p>
 <p><strong>(E)</strong> C and D</p>
 <p><br></p>
+<hr />
 <p><br>
 <br>
 <br>
@@ -523,6 +524,7 @@ so we only care about how to describe the token format and the grammar</p>
 <p><strong>(C)</strong> <code class="sourceCode haskell">[<span class="dt">NUM</span> <span class="st">&quot;92&quot;</span>]</code></p>
 <p><strong>(D)</strong> <code class="sourceCode haskell">[<span class="dt">NUM</span> <span class="st">&quot;92&quot;</span>, <span class="dt">ID</span> <span class="st">&quot;zoo&quot;</span>]</code></p>
 <p><br></p>
+<hr />
 <p><br>
 <br>
 <br>
@@ -660,6 +662,7 @@ correspond to which tokens from the <code class="sourceCode haskell"><span class
 <p><strong>(C)</strong> <code class="sourceCode haskell"><span class="dt">APlus</span> (<span class="dt">APlus</span> (<span class="dt">AConst</span> <span class="dv">1</span>) (<span class="dt">AConst</span> <span class="dv">2</span>)) (<span class="dt">AConst</span> <span class="dv">3</span>)</code></p>
 <p><strong>(D)</strong> <code class="sourceCode haskell"><span class="dt">APlus</span> (<span class="dt">AConst</span> <span class="dv">1</span>) (<span class="dt">APlus</span> (<span class="dt">AConst</span> <span class="dv">2</span>) (<span class="dt">AConst</span> <span class="dv">3</span>))</code></p>
 <p><br></p>
+<hr />
 <p><br>
 <br>
 <br>
@@ -742,6 +745,7 @@ correspond to which tokens from the <code class="sourceCode haskell"><span class
 <li><p><code class="sourceCode haskell"><span class="dt">AMul</span>  (<span class="dt">AConst</span> <span class="dv">2</span>) (<span class="dt">APlus</span> (<span class="dt">AConst</span> <span class="dv">5</span>) (<span class="dt">AConst</span> <span class="dv">5</span>))</code></p></li>
 <li><p>Why?</p></li>
 </ul>
+<hr />
 <p><br>
 <br>
 <br>

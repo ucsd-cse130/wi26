@@ -883,6 +883,7 @@ such that <code class="sourceCode haskell">map' f xs</code> returns a list whose
 <p><strong>(D)</strong> <code class="sourceCode haskell">(a <span class="ot">-&gt;</span> b <span class="ot">-&gt;</span> b) <span class="ot">-&gt;</span> b <span class="ot">-&gt;</span> [a] <span class="ot">-&gt;</span> b</code></p>
 <p><strong>(E)</strong> <code class="sourceCode haskell">(b <span class="ot">-&gt;</span> a <span class="ot">-&gt;</span> b) <span class="ot">-&gt;</span> b <span class="ot">-&gt;</span> [a] <span class="ot">-&gt;</span> b</code></p>
 <p><br></p>
+<hr />
 <p><br>
 <br>
 <br>
@@ -896,6 +897,7 @@ such that <code class="sourceCode haskell">map' f xs</code> returns a list whose
 <div class="sourceCode" id="cb35"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">foldr</span> f b []     <span class="ot">=</span> b</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">foldr</span> f b (x<span class="op">:</span>xs) <span class="ot">=</span> f x (<span class="fu">foldr</span> f b xs)</span></code></pre></div>
 <p>Is <code class="sourceCode haskell"><span class="fu">foldr</span></code> <strong>tail recursive</strong>?</p>
+<hr />
 <p><br>
 <br>
 <br>
@@ -1041,6 +1043,7 @@ such that <code class="sourceCode haskell">map' f xs</code> returns a list whose
 <p><strong>(D)</strong> <code class="sourceCode haskell">[[<span class="dv">3</span>],[<span class="dv">2</span>],[<span class="dv">1</span>]]</code></p>
 <p><strong>(E)</strong> <code class="sourceCode haskell">[[<span class="dv">1</span>],[<span class="dv">2</span>],[<span class="dv">3</span>]]</code></p>
 <p><br></p>
+<hr />
 <div class="sourceCode" id="cb45"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">foldl</span> f b (x1<span class="op">:</span> x2<span class="op">:</span> x3 <span class="op">:</span> [])</span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">==&gt;</span> helper b (x1<span class="op">:</span> x2<span class="op">:</span> x3 <span class="op">:</span> [])</span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">==&gt;</span> helper (f x1 b)  (x2<span class="op">:</span> x3 <span class="op">:</span> [])</span>
