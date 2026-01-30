@@ -164,12 +164,25 @@ para1 = PHead 1 "Notes from CSE 130"
 para2 :: Para
 para2 = PText "There are two types of languages"
 
+
+funny n = n : funny (n+1)
+
+-- >>> take 2 (funny 9)
+-- >>> take 2 (9 : funny 10)
+-- >>> 9 : take 1 (funny 10)
+-- >>> 9 : take 1 (10 : funny 11)
+-- >>> 9 : take 1 (10 : funny 11)
+--     9 : 10 : take 0 (funny 11)
+--     9 : 10 : []
+
+-- [9,10]
+
 -- >>> q6
 
-q6 = case para2 of
-        PText s     -> s
-        PHead lvl _ -> lvl
-        PList ord _ -> ord
+-- q6 = case para2 of
+--         PText s     -> s
+--         PHead lvl _ -> lvl
+--         PList ord _ -> ord
 
 
 para3 :: Para
