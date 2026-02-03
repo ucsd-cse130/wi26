@@ -15,6 +15,7 @@ The live-edited code for each lecture can be found [here][code].
 | 1/22     | ""                        | [html][lec2] | [pdf][pdf2] | [code][code3b] |
 | 1/27     | Midterm I                 |              |             |                |
 | 1/29     | Datatypes & Recursion     | [html][lec3] | [pdf][pdf3] |                |
+| 2/3      | ""                        |              |             |                |
 | 2/19     | Midterm II                |              |             |                |
 | 3/19     | Final Exam                |              |             |                |
 
