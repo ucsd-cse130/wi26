@@ -1,5 +1,5 @@
 ---
-title: Higher-Order Functions 
+title: Higher-Order Functions
 date: 2018-04-23
 headerImg: books.jpg
 ---
@@ -8,12 +8,12 @@ headerImg: books.jpg
 
 **Last week:**
 
-  * user-defined *data types*
-    
-  * manipulating data-types with *pattern matching* and *recursion* 
+- user-defined _data types_
 
-  * how to make recursive functions more efficient with *tail recursion*
-    
+- manipulating data-types with _pattern matching_ and _recursion_
+
+- how to make recursive functions more efficient with _tail recursion_
+
 <br>
 <br>
 <br>
@@ -22,11 +22,11 @@ headerImg: books.jpg
 <br>
 <br>
 <br>
-<br>    
+<br>
 
 ## The long arc of history
 
-Pattern matching is a *very* old PL idea ...  
+Pattern matching is a _very_ old PL idea ...
 
 - Variants of LISP from 1970 by [Fred McBride](https://personal.cis.strath.ac.uk/conor.mcbride/FVMcB-PhD.pdf)
 
@@ -57,42 +57,42 @@ def make_point_3d(pt):
 <br>
 <br>
 <br>
-<br>    
+<br>
 
 ## Plan for this week
 
 **Last week:**
 
-  * user-defined *data types*
-    
-  * manipulating data-types with *pattern matching* and *recursion* 
+- user-defined _data types_
 
-  * how to make recursive functions more efficient with *tail recursion*
-  
+- manipulating data-types with _pattern matching_ and _recursion_
+
+- how to make recursive functions more efficient with _tail recursion_
+
 **This week:**
 
-  * code reuse with *higher-order functions* (HOFs)
+- code reuse with _higher-order functions_ (HOFs)
 
-  * some useful HOFs: `map`, `filter`, and `fold`
-    
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>    
+- some useful HOFs: `map`, `filter`, and `fold`
 
-## Recursion is good... 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## Recursion is good...
 
 - Recursive code mirrors recursive data
 
-    - Base constructor -> Base case 
-    - Inductive constructor -> Inductive case (with recursive call)
+  - Base constructor -> Base case
+  - Inductive constructor -> Inductive case (with recursive call)
 
-- But it can get **repetitive**!  
+- But it can get **repetitive**!
 
 <br>
 <br>
@@ -103,7 +103,6 @@ def make_point_3d(pt):
 <br>
 <br>
 <br>
-
 
 ## Example: evens
 
@@ -116,7 +115,7 @@ Let's write a function `evens`:
 
 ```haskell
 evens       :: [Int] -> [Int]
-evens []     = ... 
+evens []     = ...
 evens (x:xs) = ...
 ```
 
@@ -138,7 +137,7 @@ Let's write a function `fourChars`:
 
 ```haskell
 fourChars :: [String] -> [String]
-fourChars []     = ... 
+fourChars []     = ...
 fourChars (x:xs) = ...
 ```
 
@@ -190,11 +189,11 @@ Only difference is **condition**
 
 <br>
 
-Can we 
+Can we
 
-* *reuse* the general pattern and
+- _reuse_ the general pattern and
 
-* *plug-in* the custom condition?
+- _plug-in_ the custom condition?
 
 <br>
 <br>
@@ -209,14 +208,13 @@ Can we
 ## Higher-Order Functions
 
 General **Pattern**
-  
-  - expressed as a *higher-order function*
-  - takes plugin operations as *arguments* 
+
+- expressed as a _higher-order function_
+- takes plugin operations as _arguments_
 
 Specific **Operation**
 
-  - passed in as an argument to the HOF
-
+- passed in as an argument to the HOF
 
 <br>
 <br>
@@ -231,7 +229,7 @@ Specific **Operation**
 
 General Pattern
 
-- HOF `filter` 
+- HOF `filter`
 - Recursively traverse list and pick out elements that satisfy a predicate
 
 Specific Operations
@@ -304,8 +302,7 @@ So what's the type of `filter`?
 <br>
 <br>
 
-    
-## Type of `filter` 
+## Type of `filter`
 
 ```haskell
 -- evens [1,2,3,4] ==> [2,4]
@@ -323,20 +320,19 @@ fourChars xs = filter isFour xs
     isFour x  =  length x == 4
 ```
 
-For *any* type `a`
+For _any_ type `a`
 
-- **Input** a _predicate_ `a -> Bool` and _collection_ `[a]` 
+- **Input** a _predicate_ `a -> Bool` and _collection_ `[a]`
 - **Output** a (smaller) _collection_ `[a]`
-
 
 ```haskell
 filter :: (a -> Bool) -> [a] -> [a]
 ```
 
-`filter` *does not care* what the list elements are
+`filter` _does not care_ what the list elements are
 
-* as long as the predicate can handle them
-  
+- as long as the predicate can handle them
+
 `filter` is **polymorphic** (generic) in the type of list elements
 
 <br>
@@ -354,23 +350,19 @@ filter :: (a -> Bool) -> [a] -> [a]
 <br>
 <br>
 
-
-
-
-
 ## Example: ALL CAPS!
 
 Lets write a function `shout`:
 
 ```haskell
 -- shout []                    ==> []
--- shout ['h','e','l','l','o'] ==> ['H','E','L','L','O'] 
+-- shout ['h','e','l','l','o'] ==> ['H','E','L','L','O']
 ```
 
 ```haskell
 shout :: [Char] -> [Char]
 shout []     = ...
-shout (x:xs) = ... 
+shout (x:xs) = ...
 ```
 
 <br>
@@ -386,7 +378,7 @@ Lets write a function `squares`:
 
 ```haskell
 -- squares []        ==> []
--- squares [1,2,3,4] ==> [1,4,9,16] 
+-- squares [1,2,3,4] ==> [1,4,9,16]
 ```
 
 ```haskell
@@ -502,7 +494,6 @@ map f (x:xs) = f x : map f xs
 
 **(E)** `(a -> b) -> [c] -> [d]`
 
-    
 <br>
 <br>
 <br>
@@ -517,7 +508,7 @@ map f (x:xs) = f x : map f xs
 -- For any types `a` and `b`
 --   if you give me a transformation from `a` to `b`
 --   and a list of `a`s,
---   I'll give you back a list of `b`s 
+--   I'll give you back a list of `b`s
 map :: (a -> b) -> [a] -> [b]
 ```
 
@@ -525,18 +516,18 @@ map :: (a -> b) -> [a] -> [b]
 
 **Type says it all!**
 
-* The only meaningful thing a function of this type can do is apply its first argument to elements of the list
+- The only meaningful thing a function of this type can do is apply its first argument to elements of the list
 
-* Hoogle it!
+- Hoogle it!
 
 <br>
 
 Things to try at home:
 
-  * can you write a function `map' :: (a -> b) -> [a] -> [b]` whose behavior is different from `map`?
-  
-  * can you write a function `map' :: (a -> b) -> [a] -> [b]`
-    such that `map' f xs` returns a list whose elements are not in `map f xs`?
+- can you write a function `map' :: (a -> b) -> [a] -> [b]` whose behavior is different from `map`?
+
+- can you write a function `map' :: (a -> b) -> [a] -> [b]`
+  such that `map' f xs` returns a list whose elements are not in `map f xs`?
 
 <br>
 <br>
@@ -584,11 +575,11 @@ Benefits of **factoring** code with HOFs:
 
 - Reuse iteration pattern
 
-    - think in terms of standard patterns
-    
-    - less to write
-  
-    - easier to communicate
+  - think in terms of standard patterns
+
+  - less to write
+
+  - easier to communicate
 
 - Avoid bugs due to repetition
 
@@ -622,8 +613,6 @@ len (x:xs) = 1 + len xs
 <br>
 <br>
 <br>
-
-
 
 ## Recall: summing a list
 
@@ -725,7 +714,7 @@ foldr f b (x:xs) = f x (foldr f b xs)
 <br>
 <br>
 
-Let's refactor `sum`, `len` and `cat`: 
+Let's refactor `sum`, `len` and `cat`:
 
 ```haskell
 sum = foldr ...  ...
@@ -747,7 +736,6 @@ Factor the recursion out!
 <br>
 <br>
 
-
 ![`foldr` instances](/static/img/foldr-pattern-instance.png)
 
 You can write it more clearly as
@@ -767,7 +755,6 @@ cat = foldr (++) ""
 <br>
 <br>
 <br>
-
 
 ## The "fold-right" pattern
 
@@ -854,14 +841,13 @@ foldr (:) [] [1,2,3]
 <br>
 <br>
 
-
 ## QUIZ
 
 What is the most general type of `foldr`?
 
 ```haskell
 
-foldr :: (a -> b -> b) -> b -> [a] -> b 
+foldr :: (a -> b -> b) -> b -> [a] -> b
 foldr f b []     = b
 foldr f b (x:xs) = f x (foldr f b xs)
 ```
@@ -879,7 +865,7 @@ foldr f b (x:xs) = f x (foldr f b xs)
 <br>
 
 (I) final
-    
+
     *Answer:* D
 
 <br>
@@ -892,7 +878,6 @@ foldr f b (x:xs) = f x (foldr f b xs)
 <br>
 <br>
 
-
 ## Tail Recursive Fold
 
 ```haskell
@@ -903,7 +888,7 @@ foldr f b (x:xs) = f x (foldr f b xs)
 Is `foldr` **tail recursive**?
 
 (I) final
-    
+
     *Answer:* No! It calls the binary operations on the results of the recursive call
 
 <br>
@@ -924,6 +909,7 @@ Let's write tail-recursive `sum`!
 sumTR :: [Int] -> Int
 sumTR = ...
 ```
+
 <br>
 <br>
 <br>
@@ -941,11 +927,11 @@ sumTR [1,2,3]
   ==> helper 0 [1,2,3]
   ==> helper 1   [2,3]    -- 0 + 1 ==> 1
   ==> helper 3     [3]    -- 1 + 2 ==> 3
-  ==> helper 6      []    -- 3 + 3 ==> 6 
+  ==> helper 6      []    -- 3 + 3 ==> 6
   ==> 6
 ```
 
-**Note:** `helper` directly returns the result of recursive call! 
+**Note:** `helper` directly returns the result of recursive call!
 
 <br>
 <br>
@@ -960,7 +946,7 @@ sumTR [1,2,3]
 Let's write tail-recursive `cat`!
 
 ```haskell
-catTR :: [String] -> String 
+catTR :: [String] -> String
 catTR = ...
 ```
 
@@ -990,7 +976,7 @@ catTR                 ["carne", "asada", "torta"]
   ==> "carneasadatorta"
 ```
 
-**Note:** `helper` directly returns the result of recursive call! 
+**Note:** `helper` directly returns the result of recursive call!
 
 <br>
 <br>
@@ -1059,7 +1045,7 @@ foldl f b xs          = helper b xs
 <br>
 <br>
 
-Let's refactor `sumTR` and `catTR`: 
+Let's refactor `sumTR` and `catTR`:
 
 ```haskell
 sumTR = foldl ...  ...
@@ -1077,7 +1063,6 @@ Factor the tail-recursion out!
 <br>
 <br>
 <br>
-
 
 ## QUIZ
 
@@ -1107,7 +1092,7 @@ quiz = foldl (\xs x -> x : xs) [] [1,2,3]
 <br>
 
 (I) final
-    
+
     *Answer:* C
 
 ```
@@ -1118,7 +1103,6 @@ foldl f b (x1: x2: x3 : [])
   ==> helper (f x3 (f x2 (f x1 b)))  []
   ==> ( x3 :  (x2 : (x1 : [])))
 ```
-
 
 <br>
 <br>
@@ -1203,9 +1187,9 @@ foldr :: (a -> b -> b) -> b -> [a] -> b  -- Right
 
 Iteration patterns over collections:
 
-- **Filter** values in a collection given a *predicate*
-- **Map** (iterate) a given *transformation* over a collection
-- **Fold** (reduce) a collection into a value, given a *binary operation* to combine results
+- **Filter** values in a collection given a _predicate_
+- **Map** (iterate) a given _transformation_ over a collection
+- **Fold** (reduce) a collection into a value, given a _binary operation_ to combine results
 
 <br>
 
@@ -1213,20 +1197,19 @@ HOFs can be put into libraries to enable modularity
 
 - Data structure **library** implements `map`, `filter`, `fold` for its collections
 
-    - generic efficient implementation
-    
-    - generic optimizations: `map f (map g xs) --> map (f.g) xs`
-    
+  - generic efficient implementation
+
+  - generic optimizations: `map f (map g xs) --> map (f.g) xs`
 
 - Data structure **clients** use HOFs with specific operations
-    
-    - no need to know the implementation of the collection 
-    
-Crucial foundation of 
+
+  - no need to know the implementation of the collection
+
+Crucial foundation of
 
 - "big data" revolution e.g. _MapReduce_, _Spark_, _TensorFlow_
 
-- "web programming" revolution e.g. _Jquery_, _Angular_, _React_  
+- "web programming" revolution e.g. _Jquery_, _Angular_, _React_
 
 <br>
 <br>
@@ -1239,4 +1222,3 @@ Crucial foundation of
 <br>
 <br>
 <br>
-

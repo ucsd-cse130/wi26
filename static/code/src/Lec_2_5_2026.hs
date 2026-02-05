@@ -4,7 +4,7 @@
 {- HLINT ignore "Use list literal" -}
 {- HLINT ignore "Redundant lambda" -}
 {- HLINT ignore "Use lambda" -}
-module Lec_2_3_2026 where
+module Lec_2_5_2026 where
 
 import Text.Printf (printf)
 

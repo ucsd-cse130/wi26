@@ -21,6 +21,7 @@ library
       Lec_1_20_2026
       Lec_1_29_2026
       Lec_2_3_2026
+      Lec_2_5_2026
 
   hs-source-dirs:
       src
