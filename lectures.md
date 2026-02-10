@@ -118,4 +118,3 @@ The live-edited code for each lecture can be found [here][code].
 [final]: /static/raw/130-final-wi19.pdf
 [final-sol]: /static/raw/130-final-wi19-solution.pdf
 [final-review]: discussions/final-review.html
-[haha]: https://www.youtube.com/watch?v=QH2-TGUlwu4
