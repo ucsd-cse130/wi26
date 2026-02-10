@@ -16,7 +16,8 @@ The live-edited code for each lecture can be found [here][code].
 | 1/27     | Midterm I                 |              |             |                |
 | 1/29     | Datatypes & Recursion     | [html][lec3] | [pdf][pdf3] |                |
 | 2/3      | ""                        |              |             | [code][code5a] |
-| 2/5      | Higher Order Functions    | [html][lec4] |             | [code][code5b] |
+| 2/5      | ""                        |              |             | [code][code5b] |
+| 2/10     | Higher Order Functions    | [html][lec4] |             | [code][code6a] |
 | 2/19     | Midterm II                |              |             |                |
 | 3/19     | Final Exam                |              |             |                |
 
@@ -94,6 +95,7 @@ The live-edited code for each lecture can be found [here][code].
 [code4b]: https://github.com/ucsd-cse130/wi26/blob/main/static/code/src/Lec_1_29_2026.hs
 [code5a]: https://github.com/ucsd-cse130/wi26/blob/main/static/code/src/Lec_2_3_2026.hs
 [code5b]: https://github.com/ucsd-cse130/wi26/blob/main/static/code/src/Lec_2_5_2026.hs
+[code6a]: https://github.com/ucsd-cse130/wi26/blob/main/static/code/src/Lec_2_10_2026.hs
 [pdf-data]: /static/raw/03-datatypes.pdf
 [pdf-data-b]: /static/raw/03-datatypes-B.pdf
 [pdf-parse]: /static/raw/06-parsing.pdf
