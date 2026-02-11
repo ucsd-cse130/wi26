@@ -47,7 +47,6 @@ itemHtml i = printf "<li>%s</li>" i
 -- "10 horse 20"
 
 
-
 bloep :: Int -> Int -> String
 bloep a b = printf "%d %s %d" a "horse" b
 
