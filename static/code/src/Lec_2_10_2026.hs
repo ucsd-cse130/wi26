@@ -117,9 +117,10 @@ def fac(n):
 
 filter :: (a -> Bool) -> [a] -> [a]
 filter cond []    = []
-filter cond (h:t) = if cond h
-                        then h : filter cond t
-                        else     filter cond t
+filter cond (h:t) = let rest = filter cond t in
+                    if cond h
+                        then h : rest
+                        else     rest
 
 evens' :: [Int] -> [Int]
 evens' = filter even
@@ -228,9 +229,105 @@ addList :: [Int] -> Int
 addList []    = 0
 addList (h:t) = h + addList t
 
+
+
+
+
+{-
+addListTR [1,2,3,4,5]
+=>
+helper 0 [1,2,3,4,5]
+helper (0 + 1) [2,3,4,5]
+helper (0 + 1 + 2) [3,4,5]
+helper (0 + 1 + 2 + 3) [4,5]
+helper (0 + 1 + 2 + 3 + 4) [5]
+helper (0 + 1 + 2 + 3 + 4 + 5) []
+ (0 + 1 + 2 + 3 + 4 + 5)
+ 15
+-}
+
+-- >>> addListTR [1,2,3,4,5]
+-- 15
+
 splice :: [String]  -> String
 splice []    = ""
 splice (h:t) = h ++ splice t
+
+-- >>> spliceTR ["cat", "dog", "mouse"]
+-- "catdogmouse"
+
+spliceTR :: [String] -> String
+spliceTR = foldLeft (++) ""
+
+addListTR :: [Int] -> Int
+addListTR = foldLeft (+) 0
+
+{-
+foo list = helper "" list
+  where
+    helper ans []     = ans
+    helper ans (x:xs) = let newAns = ans ++ x
+                        in helper newAns xs
+
+foo list = helper 0 list
+  where
+    helper ans []     = ans
+    helper ans (x:xs) = let newAns = ans + x
+                        in helper newAns xs
+
+-}
+foldLeft :: (t -> a -> t) -> t -> [a] -> t
+foldLeft op b list = helper b list
+  where
+    helper ans []     = ans
+    helper ans (x:xs) = let newAns = op ans x
+                        in helper newAns xs
+
+-- >>> listLength "I can"
+-- 5
+
+listLength xs = foldLeft (\ans _ -> ans + 1) 0 xs
+
+{-
+foldLeft :: (a -> b -> a) -> a -> [b] -> a
+foldLeft op b list = helper b list
+  where
+    helper :: T_ans -> [T_stuff] -> T_ans
+    helper ans []     = ans
+    helper ans (x:xs) = helper (op ans x) xs
+
+      -- op :: T_ans -> T_stuff -> T_ans
+      -- x  :: T_stuff
+      -- xs :: [T_stuff]
+
+foldLeft op b [x1,x2,x3,x4]
+=>
+helper b [x1,x2,x3,x4]
+=>
+helper (b `op` x1) [x2, x3, x4]
+
+helper ((b `op` x1) `op` x2) [x3, x4]
+
+helper (((b `op` x1) `op` x2) `op` x3) [x4]
+
+helper ((((b `op` x1) `op` x2) `op` x3) `op` x4) []
+
+((((b `op` x1) `op` x2) `op` x3) `op` x4
+
+
+
+
+
+
+
+spliceTR ["c", "d", "m"]
+helper "" ["c", "d", "m"]
+helper ("" ++"c") ["d", "m"]
+helper ("" ++"c"++ "d") [ "m"]
+helper ("" ++"c"++ "d" ++ "m") []
+("" ++"c"++ "d" ++ "m")
+"cdm"
+-}
 
 {-
 len' :: [Int] -> Int
@@ -242,9 +339,13 @@ splice'  = jef (++) ""
 addList' :: [Int] -> Int
 addList' = jef (+)  0
 
-jef op b []    = b
-jef op b (h:t) = op h (jef op b t)
 
+foldr :: ( a -> b -> b ) -> b -> [a] -> b
+foldr op b []    = b
+foldr op b (h:t) = op h (foldr op b t)
+
+    -- h :: T_stuff
+    -- t :: [T_stuff]
 -}
 
 {-
@@ -273,3 +374,64 @@ x1 :    x2   :    x3 :      x4 :  []
 
 
 --------------------------------------
+{-
+
+op = (\xs x -> x : xs)
+
+foldLeft (\xs x -> x : xs) [] [1,2,3]
+=>
+
+helper [] [1,2,3]
+=>
+helper [1] [2, 3]
+=>
+helper ([2, 1]) [3]
+=>
+helper ([3, 2, 1]) []
+=>
+[3,2,1]
+
+
+
+
+
+-}
+
+type Value = Int
+type Ident = String
+type Env   = [(Ident, Value)]
+
+data Expr
+  = ENum Int
+  | EVar Ident
+  | EAdd Expr Expr
+  | ESub Expr Expr
+  | EMul Expr Expr
+  deriving (Show)
+
+
+
+-- (2 + 3) * (7 - 1)
+expr0 :: Expr
+expr0 = EMul (EAdd (ENum 2) (ENum 3)) (ESub (ENum 7) (ENum 1))
+
+-- >>> eval [("x", 10), ("y", 20)] expr1
+-- 228
+
+-- (2 + x) * (y - 1)
+expr1 :: Expr
+expr1 = EMul (EAdd (ENum 2) (EVar "x")) (ESub (EVar "y") (ENum 1))
+
+
+eval :: Env -> Expr -> Value
+eval _   (ENum n)     = n
+eval env (EVar x)     = lookupVar env x
+eval env (EAdd e1 e2) = eval env e1  + eval env e2
+eval env (ESub e1 e2) = eval env e1  - eval env e2
+eval env (EMul e1 e2) = eval env e1  * eval env e2
+
+lookupVar :: Env -> Ident -> Value
+lookupVar ((key,value):rest) x
+  | x == key = value
+  | otherwise = lookupVar rest x
+lookupVar [] x = error ("OH GOD! no value for " ++ x)
