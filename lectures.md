@@ -18,6 +18,7 @@ The live-edited code for each lecture can be found [here][code].
 | 2/3      | ""                        |              |             | [code][code5a] |
 | 2/5      | ""                        |              |             | [code][code5b] |
 | 2/10     | Higher Order Functions    | [html][lec4] |             | [code][code6a] |
+| 2/12     | Closures                  | [html][lec5] |             | [code][code6b] |
 | 2/19     | Midterm II                |              |             |                |
 | 3/19     | Final Exam                |              |             |                |
 
@@ -51,20 +52,6 @@ The live-edited code for each lecture can be found [here][code].
 | 3/11       | Final Review             | [pdf][discFinal] |
 -->
 
-[wk2a]: static/raw/130-handout-1-14.pdf
-[wk2b]: static/raw/130-handout-1-16.pdf
-[wk3b]: static/raw/130-handout-1-23.pdf
-[wk4b]: static/raw/130-handout-1-30.pdf
-[wk5a]: static/raw/130-handout-2-4.pdf
-[wk5b]: static/raw/130-handout-2-6.pdf
-[wk6a]: static/raw/130-handout-2-11.pdf
-[wk6b]: static/raw/130-handout-2-13.pdf
-[wk8a]: static/raw/130-handout-2-25.pdf
-[wk8b]: static/raw/130-handout-2-27.pdf
-[wk9a]: static/raw/130-handout-3-4.pdf
-[wk9b]: static/raw/130-handout-3-6.pdf
-[wk10a]: static/raw/130-handout-3-11.pdf
-[wk10b]: static/raw/130-handout-3-13.pdf
 [lec0]: lectures/00-hello.html
 [lec1]: lectures/01-lambda.html
 [lec2]: lectures/02-haskell.html

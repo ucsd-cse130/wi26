@@ -232,23 +232,7 @@ splice :: [String]  -> String
 splice []    = ""
 splice (h:t) = h ++ splice t
 
-
 {-
-
-jef []    = 0
-jef (h:t) = 1 + jef t
-
-jef []    = 0
-jef (h:t) = h + jef t
-
-jef []    = ""
-jef (h:t) = h ++ jef t
-
-jef []    = 0
-jef (h:t) = 1 + jef t
-
--}
-
 len' :: [Int] -> Int
 len'     = jef (\_ n -> 1 + n) 0
 
@@ -258,14 +242,10 @@ splice'  = jef (++) ""
 addList' :: [Int] -> Int
 addList' = jef (+)  0
 
-
 jef op b []    = b
 jef op b (h:t) = op h (jef op b t)
 
--- >>> 1 `plux` 20
-
-plux a b = a + b
-
+-}
 
 {-
 jef op b [x1, x2, x3, x4]
@@ -280,12 +260,9 @@ op x1 (op x2 (op x3 (op x4 (jef op b []))))
 ==>
 op x1 (op x2 (op x3 (op x4 b)))
 
+x1 `op` (x2 `op` (x3 `op` (x4 `op` b)))
 
-
-
-
-
-
+x1 :    x2   :    x3 :      x4 :  []
 
 -}
 
@@ -295,50 +272,4 @@ op x1 (op x2 (op x3 (op x4 b)))
 -- "catdogtom"
 
 
-------------------------------------------------------------------------------------------------------------------------
-
-data Para
-    = PText String
-    | PHead Int String
-    | PList Bool [String]
-    deriving (Show)
-
-doc :: [Para]
-doc = [para1, para2, para3]
-
-para1 :: Para
-para1 = PHead 1 "Notes from CSE 130"
-
-para2 :: Para
-para2 = PText "There are two types of languages"
-
-para3 :: Para
-para3 = PList True
-            [ "those that people complain about",
-            "those that no one uses"]
-
--- >>> html doc
--- "<h1>Notes from CSE 130</h1><p>There are two types of languages</p><ol><li>those that people complain about</li><li>those that no one uses</li></ol>"
-
-
-paraHtml :: Para -> String
-paraHtml (PText s)         = printf "<p>%s</p>" s
-paraHtml (PHead lvl s)     = printf "<h%d>%s</h%d>" lvl s lvl
-paraHtml (PList ord items) = printf "<%s>%s</%s>" tag (itemsHtml items) tag
-  where
-    tag = if ord then "ol" else "ul"
-
-cat :: [String] -> String
-cat [] = ""
-cat (s1:rest) = s1 ++ cat rest
-
-html :: [Para] -> String
-html []     = ""
-html (p:ps) = paraHtml p ++ html ps
-
-itemsHtml :: [String] -> String
-itemsHtml []     = ""
-itemsHtml (i:is) = itemHtml i ++ itemsHtml is
-
-itemHtml :: String -> String
-itemHtml i = printf "<li>%s</li>" i
+--------------------------------------

@@ -1125,6 +1125,18 @@ foldl f b                     [x1, x2, x3, x4]
   ==> (f (f (f (f b x1) x2) x3) x4)
 ```
 
+or, writing `f` in the **infix** form:
+
+```haskell
+foldl f b                               [x1, x2, x3, x4]
+  ==> helper b                          [x1, x2, x3, x4]
+  ==> helper (b `f` x1)                     [x2, x3, x4]
+  ==> helper ((b `f` x1) `f` x2)                [x3, x4]
+  ==> helper (((b `f` x1) `f` x2) `f` x3)           [x4]
+  ==> helper ((((b `f` x1) `f` x2) `f` x3) `f` x4)    []
+  ==> ((((b `f` x1) `f` x2) `f` x3) `f` x4)
+```
+
 Accumulate the values from the **left**
 
 For example:
@@ -1205,9 +1217,9 @@ HOFs can be put into libraries to enable modularity
 
   - no need to know the implementation of the collection
 
-Crucial foundation of
+Foundation of
 
-- "big data" revolution e.g. _MapReduce_, _Spark_, _TensorFlow_
+- "big data" revolution e.g. _MapReduce_, _Spark_, _TensorFlow_, _PyTorch_
 
 - "web programming" revolution e.g. _Jquery_, _Angular_, _React_
 
