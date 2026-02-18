@@ -256,8 +256,17 @@ splice (h:t) = h ++ splice t
 -- >>> spliceTR ["cat", "dog", "mouse"]
 -- "catdogmouse"
 
+{-
+
+spliceTR ["cat", "dog", "mouse"]
+=>
+
+(\xs -> foldLeft (++) "" xs) ["cat", "dog", "mouse"]
+-}
+
+
 spliceTR :: [String] -> String
-spliceTR = foldLeft (++) ""
+spliceTR = (\xs -> foldLeft (++) "" xs)
 
 addListTR :: [Int] -> Int
 addListTR = foldLeft (+) 0
@@ -422,7 +431,41 @@ expr0 = EMul (EAdd (ENum 2) (ENum 3)) (ESub (ENum 7) (ENum 1))
 expr1 :: Expr
 expr1 = EMul (EAdd (ENum 2) (EVar "x")) (ESub (EVar "y") (ENum 1))
 
+{-
 
+(A)
+
+  (let x = 10 in x + 1)
+  +
+  (let y = 100 in y + 1)
+
+  ==> 112
+
+(B)
+
+  (let x = 10 in x + 1)
+  +
+  (let y = 100 in x + 1)
+
+  ==> error "oh no!"
+
+(C)
+
+  (let x = 10 in x + 1)
+  +
+  (let x = 100 in x + 1)
+
+  ==>
+
+  112
+
+
+
+ let x = 5 + 5 in
+ let y = x + x in
+   (2 + x) * (y - 1)
+
+-}
 eval :: Env -> Expr -> Value
 eval _   (ENum n)     = n
 eval env (EVar x)     = lookupVar env x
