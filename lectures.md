@@ -20,7 +20,7 @@ The live-edited code for each lecture can be found [here][code].
 | 2/10     | Higher Order Functions    | [html][lec4] |             | [code][code6a] |
 | 2/12     | Environments & Closures   | [html][lec5] |             | [code][code6b] |
 | 2/19     | Midterm II                |              |             |                |
-| 2/24     | Lexing and Parsing        | [html][lec6] | [pdf][pdf6] | [code][arith]  |
+| 2/24     | Lexing and Parsing        | [html][lec6] |  | [code][arith]  |
 | 3/19     | Final Exam                |              |             |                |
 
 <!--
@@ -76,6 +76,7 @@ The live-edited code for each lecture can be found [here][code].
 [code5a]: https://github.com/ucsd-cse130/wi26/blob/main/static/code/src/Lec_2_3_2026.hs
 [code5b]: https://github.com/ucsd-cse130/wi26/blob/main/static/code/src/Lec_2_5_2026.hs
 [code6a]: https://github.com/ucsd-cse130/wi26/blob/main/static/code/src/Lec_2_10_2026.hs
+[code6b]: https://github.com/ucsd-cse130/wi26/blob/main/static/code/src/Lec_2_12_2026.hs
 [pdf-data]: /static/raw/03-datatypes.pdf
 [pdf-data-b]: /static/raw/03-datatypes-B.pdf
 [pdf-parse]: /static/raw/06-parsing.pdf
