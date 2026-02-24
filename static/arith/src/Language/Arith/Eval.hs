@@ -34,10 +34,8 @@ runFile f = do
 exitError :: Error -> IO ()
 exitError (Error msg) = putStrLn ("Error: " ++ msg)
 
-
 -- >>> parseTokens "90027zig 007"
 -- Right [NUM (AlexPn 0 1 1) 90027,ID (AlexPn 5 1 6) "zig",NUM (AlexPn 9 1 10) 7]
-
 
 
 -- >>> parseTokens "10 + 20 - z00"

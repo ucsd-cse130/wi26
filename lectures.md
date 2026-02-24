@@ -18,22 +18,15 @@ The live-edited code for each lecture can be found [here][code].
 | 2/3      | ""                        |              |             | [code][code5a] |
 | 2/5      | ""                        |              |             | [code][code5b] |
 | 2/10     | Higher Order Functions    | [html][lec4] |             | [code][code6a] |
-| 2/12     | Closures                  | [html][lec5] |             | [code][code6b] |
+| 2/12     | Environments & Closures   | [html][lec5] |             | [code][code6b] |
 | 2/19     | Midterm II                |              |             |                |
+| 2/24     | Lexing and Parsing        | [html][lec6] | [pdf][pdf6] | [code][arith]  |
 | 3/19     | Final Exam                |              |             |                |
 
 <!--
 
 | 1/9 | The Lambda Calculus | [html][lec1] [pdf][pdf1] |
-| 1/14 | contd. | [handout][wk2a]
-| 1/16 | contd. | [handout][wk2b]
-| 1/30 | contd. | [handout][wk4b] |
-| 2/6 | contd. | [handout][wk5b] |
-| 2/13 | contd. | [handout][wk6b] |
-| 2/18 | Environments & Closures | [html][lec5] |
-| 2/25 | contd. | [handout][wk8a] |
-| 2/27 | contd. | [handout][wk8b] |
-| 3/4 | Lexing and Parsing | [html][lec6] [pdf][pdf6] [code][arith] [handout][wk9a] |
+| 2/18 | Environments & Closures | [html][lec5] | | 2/25 | contd. | [handout][wk8a] |
 | 3/6 | Type Classes | [html][lec7] [handout][wk9b] |
 | 3/11 | Functors & Monads | [html][lec8] [handout][wk10a] |
 | 3/13 | Hello, world! (finally!) | [html][lec9] [handout][wk10b] | -->
