@@ -4,15 +4,13 @@ date: 2018-05-16
 headerImg: books.jpg
 ---
 
-
 **The code for this lecture can be found** [here](https://github.com/ucsd-cse130/wi24/tree/main/static/code)
 
 ## Plan for this week
 
-
 **Last week:**
 
-- How do we *evaluate* a program given its AST?
+- How do we _evaluate_ a program given its AST?
 
 ```haskell
 eval :: Env -> Expr -> Value
@@ -20,12 +18,12 @@ eval :: Env -> Expr -> Value
 
 **This week:**
 
-- How do we *convert* program text into an AST?
+- How do we _convert_ program text into an AST?
 
 ```haskell
 parse :: String -> Expr
 ```
-  
+
 <br>
 <br>
 <br>
@@ -41,13 +39,13 @@ parse :: String -> Expr
 AST representation:
 
 ```haskell
-data Aexpr 
+data Aexpr
   = AConst  Int
   | AVar    Id
   | APlus   Aexpr Aexpr
   | AMinus  Aexpr Aexpr
   | AMul    Aexpr Aexpr
-  | ADiv    Aexpr Aexpr    
+  | ADiv    Aexpr Aexpr
 ```
 
 <br>
@@ -112,26 +110,25 @@ ADiv (AMinus (AVar "x") (AVar "y")) (AConst 2)
 <br>
 <br>
 
-
 ## Two-step-strategy
 
 How do I read a sentence "He ate a bagel"?
 
-  * First split into words: `["He", "ate", "a", "bagel"]`
-  * Then relate words to each other: "He" is the subject, "ate" is the verb, etc
-  
-<br>  
-  
-Let's do the same thing to "read" programs! 
+- First split into words: `["He", "ate", "a", "bagel"]`
+- Then relate words to each other: "He" is the subject, "ate" is the verb, etc
+
+<br>
+
+Let's do the same thing to "read" programs!
 
 <br>
 <br>
 <br>
-<br> 
+<br>
 
 ### Step 1 (Lexing) : From String to Tokens
 
-A string is a list of *characters*:
+A string is a list of _characters_:
 
 ![Characters](/static/img/info_parser.001a.jpg){#fig:chars width=70%}
 
@@ -142,10 +139,10 @@ into **tokens** (i.e. the "words" of the program):
 
 We distinguish tokens of different kinds based on their format:
 
-* all numbers: integer constant 
-* alphanumeric, starts with a letter: identifier
-* `+`: plus operator
-* etc
+- all numbers: integer constant
+- alphanumeric, starts with a letter: identifier
+- `+`: plus operator
+- etc
 
 <br>
 <br>
@@ -156,18 +153,18 @@ We distinguish tokens of different kinds based on their format:
 
 Next, we convert a sequence of tokens into an AST
 
-  * This is hard...
-  * ... but the hard parts do not depend on the language!
-  
-<br>  
-  
+- This is hard...
+- ... but the hard parts do not depend on the language!
+
+<br>
+
 **Parser generators**
 
-  * Given the description of the *token format* generates a *lexer*
-  * Given the description of the *grammar* generates a *parser*
-  
+- Given the description of the _token format_ generates a _lexer_
+- Given the description of the _grammar_ generates a _parser_
+
 We will be using parser generators,
-so we only care about how to describe the token format and the grammar 
+so we only care about how to describe the token format and the grammar
 
 <br>
 <br>
@@ -183,7 +180,7 @@ so we only care about how to describe the token format and the grammar
 
 We will use the tool called `alex` to generate the **lexer**
 
-Input to `alex`: a `.x` file that describes the *token format*
+Input to `alex`: a `.x` file that describes the _token format_
 
 <br>
 <br>
@@ -238,16 +235,16 @@ Next we describe the format of each kind of token using a rule:
 ```
 
 Each line consist of:
-  
-  * a *regular expression* that describes which strings should be recognized as this token
-  * a Haskell expression that generates the token
-  
+
+- a _regular expression_ that describes which strings should be recognized as this token
+- a Haskell expression that generates the token
+
 You read it as:
 
-  * if at position `p` in the input string 
-  * you encounter a substring `s` that matches the *regular expression*
-  * evaluate the Haskell expression with arguments `p` and `s`   
-  
+- if at position `p` in the input string
+- you encounter a substring `s` that matches the _regular expression_
+- evaluate the Haskell expression with arguments `p` and `s`
+
 <br>
 <br>
 <br>
@@ -262,24 +259,23 @@ You read it as:
 
 A regular expression has one of the following forms:
 
-* `[c1 c2 ... cn]` matches *any of* the characters `c1 .. cn`
-    
-    * `[0-9]` matches *any digit*
-    * `[a-z]` matches *any lower-case letter*    
-    * `[A-Z]` matches *any upper-case letter*
-    * `[a-z A-Z]` matches *any letter*    
-    
-* `R1 R2` matches a string `s1 ++ s2` where `s1` matches `R1` and `s2` matches `R2`
-    
-    * e.g. `[0-9] [0-9]` matches any two-digit string
-    
-* `R+` matches *one or more* repetitions of what `R` matches
+- `[c1 c2 ... cn]` matches _any of_ the characters `c1 .. cn`
 
-    * e.g. `[0-9]+` matches a natural number
-    
-* `R*` matches *zero or more* repetitions of what `R` matches    
-    
-  
+  - `[0-9]` matches _any digit_
+  - `[a-z]` matches _any lower-case letter_
+  - `[A-Z]` matches _any upper-case letter_
+  - `[a-z A-Z]` matches _any letter_
+
+- `R1 R2` matches a string `s1 ++ s2` where `s1` matches `R1` and `s2` matches `R2`
+
+  - e.g. `[0-9] [0-9]` matches any two-digit string
+
+- `R+` matches _one or more_ repetitions of what `R` matches
+
+  - e.g. `[0-9]+` matches a natural number
+
+- `R*` matches _zero or more_ repetitions of what `R` matches
+
 <br>
 <br>
 
@@ -296,7 +292,6 @@ Which of the following strings are matched by `[a-z A-Z] [a-z A-Z 0-9]*`?
 **(D)** `x`
 
 **(E)** C and D
-
 
 <br>
 
@@ -335,13 +330,12 @@ and write `[a-z A-Z] [a-z A-Z 0-9]*` as `$alpha [$alpha $digit]*`
   \)                            { \p _ -> RPAREN p }
   $alpha [$alpha $digit \_ \']* { \p s -> ID     p s }
   $digit+                       { \p s -> NUM p (read s) }
-```  
+```
 
-* When you encounter a `+`, generate a `PLUS` token
-* ...
-* When you encounter a nonempty string of digits, convert it into an integer and generate a `NUM`
-* When you encounter an alphanumeric string that starts with a letter, save it in an `ID token
-
+- When you encounter a `+`, generate a `PLUS` token
+- ...
+- When you encounter a nonempty string of digits, convert it into an integer and generate a `NUM`
+- When you encounter an alphanumeric string that starts with a letter, save it in an `ID token
 
 <br>
 <br>
@@ -357,9 +351,9 @@ and write `[a-z A-Z] [a-z A-Z 0-9]*` as `$alpha [$alpha $digit]*`
 
 From the token rules, `alex` generates a function `alexScan` which
 
-  * given an input string, find the *longest* prefix `p` that matches one of the rules
-  * if `p` is empty, it fails
-  * otherwise, it converts `p` into a token and returns the rest of the string
+- given an input string, find the _longest_ prefix `p` that matches one of the rules
+- if `p` is empty, it fails
+- otherwise, it converts `p` into a token and returns the rest of the string
 
 We wrap this function into a handy function
 
@@ -380,8 +374,8 @@ Right [ NUM (AlexPn 0 1 1) 23
       , NUM (AlexPn 5 1 6) 4
       , DIV (AlexPn 7 1 8)
       , ID (AlexPn 9 1 10) "off"
-      , MINUS (AlexPn 13 1 14) 
-      ]      
+      , MINUS (AlexPn 13 1 14)
+      ]
 ```
 
 ```haskell
@@ -426,7 +420,7 @@ What is the result of `parseTokens "92zoo"`
 
 We will use the tool called `happy` to generate the **parser**
 
-Input to `happy`: a `.y` file that describes the *grammar*
+Input to `happy`: a `.y` file that describes the _grammar_
 
 <br>
 <br>
@@ -434,22 +428,21 @@ Input to `happy`: a `.y` file that describes the *grammar*
 Wait, wasn't this the grammar?
 
 ```haskell
-data Aexpr 
+data Aexpr
   = AConst  Int
   | AVar    Id
   | APlus   Aexpr Aexpr
   | AMinus  Aexpr Aexpr
   | AMul    Aexpr Aexpr
-  | ADiv    Aexpr Aexpr    
+  | ADiv    Aexpr Aexpr
 ```
 
-This was *abstract syntax*
+This was _abstract syntax_
 
-Now we need to describe *concrete syntax*
+Now we need to describe _concrete syntax_
 
-  * What programs look like when written as text
-  * and how to map that text into the abstract syntax
-
+- What programs look like when written as text
+- and how to map that text into the abstract syntax
 
 <br>
 <br>
@@ -464,11 +457,11 @@ Now we need to describe *concrete syntax*
 
 A grammar is a recursive definition of a set of trees
 
-  - each tree is a *parse tree* for some string
-  - *parse* a string `s` = find a parse tree for `s` that belongs to the grammar
-  
+- each tree is a _parse tree_ for some string
+- _parse_ a string `s` = find a parse tree for `s` that belongs to the grammar
+
 <br>
-<br>  
+<br>
 
 A grammar is made of:
 
@@ -478,12 +471,12 @@ A grammar is made of:
 
 - **Production Rules** that describe how to "produce" a non-terminal from terminals and other non-terminals
 
-    - i.e. what children each nonterminal can have:
+  - i.e. what children each nonterminal can have:
 
-```haskell 
+```haskell
 Aexpr :   -- NT Aexpr can have as children:
-  | Aexpr '+' Aexpr  { ... } -- NT Aexpr, T '+', and NT Aexpr, or 
-  | Aexpr '-' AExpr  { ... } -- NT Aexpr, T '-', and NT Aexpr, or 
+  | Aexpr '+' Aexpr  { ... } -- NT Aexpr, T '+', and NT Aexpr, or
+  | Aexpr '-' AExpr  { ... } -- NT Aexpr, T '-', and NT Aexpr, or
   | ...
 ```
 
@@ -498,9 +491,9 @@ Aexpr :   -- NT Aexpr can have as children:
 
 ## Terminals
 
-Terminals correspond to the *tokens* returned by the lexer
+Terminals correspond to the _tokens_ returned by the lexer
 
-In the `.y` file, we have to declare with terminals in the rules 
+In the `.y` file, we have to declare with terminals in the rules
 correspond to which tokens from the `Token` datatype:
 
 ```haskell
@@ -515,14 +508,14 @@ correspond to which tokens from the `Token` datatype:
     ')'   { RPAREN _ }
 ```
 
-* Each thing on the left is terminal (as appears in the production rules)
+- Each thing on the left is terminal (as appears in the production rules)
 
-* Each thing on the right is a Haskell pattern for datatype `Token`
+- Each thing on the right is a Haskell pattern for datatype `Token`
 
-* We use `$$` to designate one parameter of a token constructor as the **value** of that token
+- We use `$$` to designate one parameter of a token constructor as the **value** of that token
 
-    * we will refer back to it from the production rules
-    
+  - we will refer back to it from the production rules
+
 <br>
 <br>
 <br>
@@ -541,31 +534,31 @@ Aexpr : TNUM                    { AConst $1    }
       | ID                      { AVar   $1    }
       | '(' Aexpr ')'           { $2           }
       | Aexpr '*' Aexpr         { AMul   $1 $3 }
-      | Aexpr '+' Aexpr         { APlus  $1 $3 } 
+      | Aexpr '+' Aexpr         { APlus  $1 $3 }
       | Aexpr '-' Aexpr         { AMinus $1 $3 }
 ```
 
-The expression on the right computes the *value* of this node
+The expression on the right computes the _value_ of this node
 
-  * `$1 $2 $3` refer to the *values* of the respective child nodes
-  
+- `$1 $2 $3` refer to the _values_ of the respective child nodes
+
 <br>
-<br>  
-  
+<br>
+
 **Example:** parsing `(2)` as `AExpr`:
 
-  1. Lexer returns a sequence of `Token`s: `[LPAREN, NUM 2, RPAREN]` 
-  
-  2. `LPAREN` is the token for terminal `'('`, so let's pick production `'(' Aexpr ')'`
-  
-  3. Now we have to parse `NUM 2` as `Aexpr` and `RPAREN` as `')'`
+1. Lexer returns a sequence of `Token`s: `[LPAREN, NUM 2, RPAREN]`
 
-  4. `NUM 2` is a token for nonterminal `TNUM`, so let's pick production `TNUM`
+2. `LPAREN` is the token for terminal `'('`, so let's pick production `'(' Aexpr ')'`
 
-  5. The value of this `Aexpr` node is `AConst 2`, since the value of `TNUM` is `2`
-  
-  6. The value of the top-level `Aexpr` node is also `AConst 2` (see the `'(' Aexpr ')'` production)
-  
+3. Now we have to parse `NUM 2` as `Aexpr` and `RPAREN` as `')'`
+
+4. `NUM 2` is a token for nonterminal `TNUM`, so let's pick production `TNUM`
+
+5. The value of this `Aexpr` node is `AConst 2`, since the value of `TNUM` is `2`
+
+6. The value of the top-level `Aexpr` node is also `AConst 2` (see the `'(' Aexpr ')'` production)
+
 <br>
 <br>
 <br>
@@ -573,8 +566,8 @@ The expression on the right computes the *value* of this node
 <br>
 <br>
 <br>
-<br>  
-  
+<br>
+
 ## QUIZ
 
 What is the value of the root `AExpr` node when parsing `1 + 2 + 3`?
@@ -584,7 +577,7 @@ Aexpr : TNUM                    { AConst $1    }
       | ID                      { AVar   $1    }
       | '(' Aexpr ')'           { $2           }
       | Aexpr '*' Aexpr         { AMul   $1 $3 }
-      | Aexpr '+' Aexpr         { APlus  $1 $3 } 
+      | Aexpr '+' Aexpr         { APlus  $1 $3 }
       | Aexpr '-' Aexpr         { AMinus $1 $3 }
 ```
 
@@ -595,7 +588,6 @@ Aexpr : TNUM                    { AConst $1    }
 **(C)** `APlus (APlus (AConst 1) (AConst 2)) (AConst 3)`
 
 **(D)** `APlus (AConst 1) (APlus (AConst 2) (AConst 3))`
-
 
 <br>
 
@@ -647,7 +639,7 @@ We can test the function like so:
     λ> evalString [] "2 - 1 - 1"
     ???
     ```
-    
+
 (I) final
 
     ```haskell
@@ -663,7 +655,6 @@ We can test the function like so:
     λ> evalString [] "2 - 1 - 1"
     2
     ```
-    
 
 <br>
 <br>
@@ -689,11 +680,10 @@ There are multiple ways of parsing the string `2 * 5 + 5`, namely
 - `APlus (AMul (AConst 2) (AConst 5)) (AConst 5)` (good)
 - `AMul  (AConst 2) (APlus (AConst 5) (AConst 5))` (bad!)
 
-*Wanted:* tell `happy` that `*` has higher **precedence** than `+`!
+_Wanted:_ tell `happy` that `*` has higher **precedence** than `+`!
 
 <br>
 <br>
-
 
 ```haskell
 λ> evalString [] "2 - 1 - 1"
@@ -702,10 +692,15 @@ There are multiple ways of parsing the string `2 * 5 + 5`, namely
 
 There are multiple ways of parsing `2 - 1 - 1`, namely
 
-- `AMinus (AMinus (AConst 2) (AConst 1)) (AConst 1)`  (good)
+**Left associative:**
+
+- `AMinus (AMinus (AConst 2) (AConst 1)) (AConst 1)` (good)
+
+**Right associative:**
+
 - `AMinus (AConst 2) (AMinus (AConst 1) (AConst 1))` (bad!)
 
-*Wanted:* tell `happy` that `-` is **left-associative**!
+_Wanted:_ tell `happy` that `-` is **left-associative**!
 
 <br>
 <br>
@@ -737,7 +732,6 @@ Aexpr3 : TNUM
 
 Intuition: `AExpr2` "binds tighter" than `AExpr`, and `AExpr3` is the tightest
 
-
 Now I cannot parse the string `2 * 5 + 5` as
 
 - `AMul  (AConst 2) (APlus (AConst 5) (AConst 5))`
@@ -748,7 +742,6 @@ Now I cannot parse the string `2 * 5 + 5` as
 
     Because the RHS of `*` has to be `AExpr3`, while `5 + 5` is *not* an `AExpr3` (it's an `AExpr`)
 
-
 <br>
 <br>
 <br>
@@ -758,16 +751,16 @@ Now I cannot parse the string `2 * 5 + 5` as
 
 This problem is so common that parser generators have a special syntax for it!
 
-```haskell 
+```haskell
 %left '+' '-'
 %left '*' '/'
 ```
 
 What this means:
 
-  - All our operators are left-associative
-  - Operators on the lower line have higher precedence
-  
+1. All our operators are **left-associative**
+2. Operators on the **lower line have higher precedence**
+
 <br>
 <br>
 <br>
@@ -777,11 +770,9 @@ What this means:
 <br>
 <br>
 
-That's all folks!  
+That's all folks!
 
-
-
-[0]: https://github.com/ucsd-cse130/arith/blob/master/src/Language/Arith/Types.hs 
+[0]: https://github.com/ucsd-cse130/arith/blob/master/src/Language/Arith/Types.hs
 [1]: https://github.com/ucsd-cse130/arith/blob/master/src/Language/Arith/Parser0.y
 [2]: https://github.com/ucsd-cse130/arith/blob/master/src/Language/Arith/Lexer.x
 [3]: https://github.com/ucsd-cse130/arith/blob/master/src/Language/Arith/Parser1.y
