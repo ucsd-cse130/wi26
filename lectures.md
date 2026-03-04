@@ -22,13 +22,11 @@ The live-edited code for each lecture can be found [here][code].
 | 2/19     | Midterm II                |              |             |                |
 | 2/24     | Lexing and Parsing        | [html][lec6] |             | [code][arith]  |
 | 3/3      | Type Classes              | [html][lec7] |             |                |
+| 3/5      | Functors & Monads         | [html][lec8] |             |                |
 | 3/19     | Final Exam                |              |             |                |
 
 <!--
 
-| 1/9 | The Lambda Calculus | [html][lec1] [pdf][pdf1] |
-| 2/18 | Environments & Closures | [html][lec5] | | 2/25 | contd. | [handout][wk8a] |
-| 3/11 | Functors & Monads | [html][lec8] [handout][wk10a] |
 | 3/13 | Hello, world! (finally!) | [html][lec9] [handout][wk10b] | -->
 
 ## Discussions
