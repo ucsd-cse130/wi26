@@ -1,5 +1,5 @@
 ---
-title: Monads 
+title: Monads
 date: 2019-06-5
 headerImg: books.jpg
 ---
@@ -167,7 +167,7 @@ What type should we give to `map`?
 
 ### Reuse Iteration Across Types
 
-Haskell's libraries use the name `Functor` instead of `Mappable` 
+Haskell's libraries use the name `Functor` instead of `Mappable`
 
 ```haskell
 instance Functor [] where
@@ -192,11 +192,11 @@ And now we can do
 ```haskell
 data Result  a
   = Error String
-  | Ok    a
+  | Value a
 
 instance Functor Result where
   fmap f (Error msg) = ???
-  fmap f (Ok val)    = ???
+  fmap f (Value val) = ???
 ```
 
 When you're done you should see
@@ -205,10 +205,10 @@ When you're done you should see
 -- >>> fmap (\n -> n ^ 2) (Node 2 (Node 1 Leaf Leaf) (Node 3 Leaf Leaf))
 -- (Node 4 (Node 1 Leaf Leaf) (Node 9 Leaf Leaf))
 
--- >>> fmap (\n -> n ^ 2) (Error "oh no") 
+-- >>> fmap (\n -> n ^ 2) (Error "oh no")
 -- Error "oh no"
 
--- >>> fmap (\n -> n ^ 2) (Ok 9) 
+-- >>> fmap (\n -> n ^ 2) (Ok 9)
 -- Ok 81
 ```
 
@@ -241,7 +241,7 @@ eval (Div  e1 e2) = eval e1 `div` eval e2
 
 A crash! Lets look at an alternative approach to avoid dividing by zero.
 
-The idea is to return a `Result Int`  (instead of a plain `Int`)
+The idea is to return a `Result Int` (instead of a plain `Int`)
 
 - If a _sub-expression_ had a divide by zero, return `Error "..."`
 - If all sub-expressions were safe, then return the actual `Result v`
@@ -258,7 +258,7 @@ eval (Div e1 e2)  = case e1 of
                       Error err1 -> Error err1
                       Value v1   -> case e2 of
                                       Error err2 -> Error err2
-                                      Value v1   -> if v2 == 0 
+                                      Value v1   -> if v2 == 0
                                                       then Error ("yikes dbz:" ++ show e2)
                                                       else Value (v1 `div` v2)
 ```
@@ -337,9 +337,9 @@ eval (Div e1 e2)  = eval e1 >>= \v1 ->
 
 **The gross _pattern matching_ is all hidden inside `>>=`**
 
-Notice the `>>=` takes *two* inputs of type:
+Notice the `>>=` takes _two_ inputs of type:
 
-- `Result Int`        (e.g. `eval e1` or `eval e2`)
+- `Result Int` (e.g. `eval e1` or `eval e2`)
 - `Int -> Result Int` (e.g. The _processing_ function that takes the `v` and does stuff with it)
 
 In the above, the processing functions are written using `\v1 -> ...` and `\v2 -> ...`
@@ -350,8 +350,8 @@ is doing, and why it is actually just a "shorter" version of the
 
 ## A Class for `>>=`
 
-Like `fmap` or `show` or `jval` or `==`, or `<=`, 
-the `>>=` operator is useful across **many** types! 
+Like `fmap` or `show` or `jval` or `==`, or `<=`,
+the `>>=` operator is useful across **many** types!
 
 Lets capture it in an interface/typeclass:
 
@@ -361,7 +361,7 @@ class Monad m where
   return :: a -> m a
 ```
 
-Notice how the definitions for `Result` fit the above, with `m = Result` 
+Notice how the definitions for `Result` fit the above, with `m = Result`
 
 ```haskell
 instance Monad Result where
@@ -375,7 +375,7 @@ instance Monad Result where
 
 ## Syntax for `>>=`
 
-In fact `>>=` is *so* useful there is special syntax for it.
+In fact `>>=` is _so_ useful there is special syntax for it.
 
 Instead of writing
 
@@ -420,24 +420,24 @@ eval (Div e1 e2)  = do v1 <- eval e1
 <br>
 <br>
 
-## Generalizing `Result` to *Many* Values
+## Generalizing `Result` to _Many_ Values
 
 We can generalize `Result` to "many" values, using `List`
 
 ```haskell
 data Result a = Err String | Result a
-data List   a = Nil        | Cons   a (List a) 
+data List   a = Nil        | Cons   a (List a)
 ```
 
 - The `Err` is like `[]` except it has a message too,
-- The `tail` of type `(List a)` lets us hold *many* possible `a` values
+- The `tail` of type `(List a)` lets us hold _many_ possible `a` values
 
 We can now make a `Monad` instance for lists as
 
 ```haskell
 instance Monad [] where
-  return = returnList 
-  (>>=)  = bindList 
+  return = returnList
+  (>>=)  = bindList
 
 returnList :: a -> [a]
 returnList x = [x]
@@ -450,7 +450,7 @@ bindList (x:xs) f = f x ++ bindList xs f
 Notice `bindList xs f` is like a `for-loop`:
 
 - **for each** `x` in `xs` we call,
-- `f x` to get the results 
+- `f x` to get the results
 - and concatenate _all_ the results
 
 so,
@@ -499,9 +499,9 @@ for x in xs:
     yield (x, y)
 ```
 
-## EXERCISE 
+## EXERCISE
 
-Fill in the blanks to implement `mMap` (i.e. `map` using monads) 
+Fill in the blanks to implement `mMap` (i.e. `map` using monads)
 
 ```haskell
 mMap :: (a -> b) -> [a] -> [b]
@@ -509,7 +509,7 @@ mMap f xs = do
   _fixme
 ```
 
-## EXERCISE 
+## EXERCISE
 
 Fill in the blanks to implement `mFilter` (i.e. `filter` using monads)
 
@@ -518,4 +518,3 @@ mFilter :: (a -> Bool) -> [a] -> [a]
 mFilter f xs = do
   _fixme
 ```
-
