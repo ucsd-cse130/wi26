@@ -349,19 +349,19 @@ if (window.navigator.appName == "Microsoft Internet Explorer") {
 <h3 id="exercise-write-a-functor-instance-for-result">Exercise: Write a <code class="sourceCode haskell"><span class="dt">Functor</span></code> instance for <code class="sourceCode haskell"><span class="dt">Result</span></code></h3>
 <div class="sourceCode" id="cb15"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> <span class="dt">Result</span>  a</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="ot">=</span> <span class="dt">Error</span> <span class="dt">String</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">|</span> <span class="dt">Ok</span>    a</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">|</span> <span class="dt">Value</span> a</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="kw">instance</span> <span class="dt">Functor</span> <span class="dt">Result</span> <span class="kw">where</span></span>
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fmap</span> f (<span class="dt">Error</span> msg) <span class="ot">=</span> <span class="op">???</span></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fmap</span> f (<span class="dt">Ok</span> val)    <span class="ot">=</span> <span class="op">???</span></span></code></pre></div>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fmap</span> f (<span class="dt">Value</span> val) <span class="ot">=</span> <span class="op">???</span></span></code></pre></div>
 <p>When you’re done you should see</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- &gt;&gt;&gt; fmap (\n -&gt; n ^ 2) (Node 2 (Node 1 Leaf Leaf) (Node 3 Leaf Leaf))</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- (Node 4 (Node 1 Leaf Leaf) (Node 9 Leaf Leaf))</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co">-- &gt;&gt;&gt; fmap (\n -&gt; n ^ 2) (Error &quot;oh no&quot;) </span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co">-- &gt;&gt;&gt; fmap (\n -&gt; n ^ 2) (Error &quot;oh no&quot;)</span></span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co">-- Error &quot;oh no&quot;</span></span>
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co">-- &gt;&gt;&gt; fmap (\n -&gt; n ^ 2) (Ok 9) </span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co">-- &gt;&gt;&gt; fmap (\n -&gt; n ^ 2) (Ok 9)</span></span>
 <span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co">-- Ok 81</span></span></code></pre></div>
 <h2 id="next-a-class-for-sequencing">Next: A Class for Sequencing</h2>
 <p>Recall our old <code class="sourceCode haskell"><span class="dt">Expr</span></code> datatype</p>
@@ -398,7 +398,7 @@ if (window.navigator.appName == "Microsoft Internet Explorer") {
 <span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>                      <span class="dt">Error</span> err1 <span class="ot">-&gt;</span> <span class="dt">Error</span> err1</span>
 <span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>                      <span class="dt">Value</span> v1   <span class="ot">-&gt;</span> <span class="kw">case</span> e2 <span class="kw">of</span></span>
 <span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>                                      <span class="dt">Error</span> err2 <span class="ot">-&gt;</span> <span class="dt">Error</span> err2</span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>                                      <span class="dt">Value</span> v1   <span class="ot">-&gt;</span> <span class="kw">if</span> v2 <span class="op">==</span> <span class="dv">0</span> </span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>                                      <span class="dt">Value</span> v1   <span class="ot">-&gt;</span> <span class="kw">if</span> v2 <span class="op">==</span> <span class="dv">0</span></span>
 <span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>                                                      <span class="kw">then</span> <span class="dt">Error</span> (<span class="st">&quot;yikes dbz:&quot;</span> <span class="op">++</span> <span class="fu">show</span> e2)</span>
 <span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>                                                      <span class="kw">else</span> <span class="dt">Value</span> (v1 <span class="ot">`div`</span> v2)</span></code></pre></div>
 <p>The <strong>good news</strong>, no nasty exceptions, just a plain <code class="sourceCode haskell"><span class="dt">Error</span></code> result</p>
@@ -513,15 +513,15 @@ the <code class="sourceCode haskell"><span class="op">&gt;&gt;=</span></code> op
 <h2 id="generalizing-result-to-many-values">Generalizing <code class="sourceCode haskell"><span class="dt">Result</span></code> to <em>Many</em> Values</h2>
 <p>We can generalize <code class="sourceCode haskell"><span class="dt">Result</span></code> to “many” values, using <code class="sourceCode haskell"><span class="dt">List</span></code></p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> <span class="dt">Result</span> a <span class="ot">=</span> <span class="dt">Err</span> <span class="dt">String</span> <span class="op">|</span> <span class="dt">Result</span> a</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> <span class="dt">List</span>   a <span class="ot">=</span> <span class="dt">Nil</span>        <span class="op">|</span> <span class="dt">Cons</span>   a (<span class="dt">List</span> a) </span></code></pre></div>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> <span class="dt">List</span>   a <span class="ot">=</span> <span class="dt">Nil</span>        <span class="op">|</span> <span class="dt">Cons</span>   a (<span class="dt">List</span> a)</span></code></pre></div>
 <ul>
 <li>The <code class="sourceCode haskell"><span class="dt">Err</span></code> is like <code class="sourceCode haskell">[]</code> except it has a message too,</li>
 <li>The <code class="sourceCode haskell"><span class="fu">tail</span></code> of type <code class="sourceCode haskell">(<span class="dt">List</span> a)</code> lets us hold <em>many</em> possible <code class="sourceCode haskell">a</code> values</li>
 </ul>
 <p>We can now make a <code class="sourceCode haskell"><span class="dt">Monad</span></code> instance for lists as</p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">instance</span> <span class="dt">Monad</span> [] <span class="kw">where</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span> <span class="ot">=</span> returnList </span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  (<span class="op">&gt;&gt;=</span>)  <span class="ot">=</span> bindList </span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span> <span class="ot">=</span> returnList</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  (<span class="op">&gt;&gt;=</span>)  <span class="ot">=</span> bindList</span>
 <span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="ot">returnList ::</span> a <span class="ot">-&gt;</span> [a]</span>
 <span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>returnList x <span class="ot">=</span> [x]</span>
