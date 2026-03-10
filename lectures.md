@@ -5,29 +5,30 @@ headerImg: books.jpg
 
 The live-edited code for each lecture can be found [here][code].
 
-| **Date** | **Topic**                 | **Notes**    | **Markup**  |    **Code**    |
-| :------- | :------------------------ | :----------- | :---------: | :------------: |
-| 1/6      | Hello, World!             | [html][lec0] |             |                |
-| 1/8      | The Lambda Calculus       | [html][lec1] | [pdf][pdf1] | [code][code1b] |
-| 1/13     | ""                        |              |             | [code][code2a] |
-| 1/15     | ""                        |              |             | [code][code2b] |
-| 1/20     | A crash course in Haskell | [html][lec2] | [pdf][pdf2] | [code][code3a] |
-| 1/22     | ""                        | [html][lec2] | [pdf][pdf2] | [code][code3b] |
-| 1/27     | Midterm I                 |              |             |                |
-| 1/29     | Datatypes & Recursion     | [html][lec3] | [pdf][pdf3] |                |
-| 2/3      | ""                        |              |             | [code][code5a] |
-| 2/5      | ""                        |              |             | [code][code5b] |
-| 2/10     | Higher Order Functions    | [html][lec4] |             | [code][code6a] |
-| 2/12     | Environments & Closures   | [html][lec5] |             | [code][code6b] |
-| 2/19     | Midterm II                |              |             |                |
-| 2/24     | Lexing and Parsing        | [html][lec6] |             | [code][arith]  |
-| 3/3      | Type Classes              | [html][lec7] |             |                |
-| 3/5      | Functors & Monads         | [html][lec8] |             |                |
-| 3/19     | Final Exam                |              |             |                |
+| **Date** | **Topic**                 | **Notes**    | **Markup**  |    **Code**     |
+| :------- | :------------------------ | :----------- | :---------: | :-------------: |
+| 1/6      | Hello, World!             | [html][lec0] |             |                 |
+| 1/8      | The Lambda Calculus       | [html][lec1] | [pdf][pdf1] | [code][code1b]  |
+| 1/13     | ""                        |              |             | [code][code2a]  |
+| 1/15     | ""                        |              |             | [code][code2b]  |
+| 1/20     | A crash course in Haskell | [html][lec2] | [pdf][pdf2] | [code][code3a]  |
+| 1/22     | ""                        | [html][lec2] | [pdf][pdf2] | [code][code3b]  |
+| 1/27     | Midterm I                 |              |             |                 |
+| 1/29     | Datatypes & Recursion     | [html][lec3] | [pdf][pdf3] |                 |
+| 2/3      | ""                        |              |             | [code][code5a]  |
+| 2/5      | ""                        |              |             | [code][code5b]  |
+| 2/10     | Higher Order Functions    | [html][lec4] |             | [code][code6a]  |
+| 2/12     | Environments & Closures   | [html][lec5] |             | [code][code6b]  |
+| 2/19     | Midterm II                |              |             |                 |
+| 2/24     | Lexing and Parsing        | [html][lec6] |             |  [code][arith]  |
+| 3/3      | Type Classes              | [html][lec7] |             | [code][code9a]  |
+| 3/5      | Functors & Monads         | [html][lec8] |             | [code][code9b]  |
+| 3/10     | ""                        |              |             | [code][code10a] |
+| 3/12     | Hello, world! (finally!)  | [html][lec9] |             | [code][code10b] |
+| 3/19     | Final Exam                |              |             |                 |
 
 <!--
 
-| 3/13 | Hello, world! (finally!) | [html][lec9] [handout][wk10b] | -->
 
 ## Discussions
 
@@ -75,6 +76,10 @@ The live-edited code for each lecture can be found [here][code].
 [code5b]: https://github.com/ucsd-cse130/wi26/blob/main/static/code/src/Lec_2_5_2026.hs
 [code6a]: https://github.com/ucsd-cse130/wi26/blob/main/static/code/src/Lec_2_10_2026.hs
 [code6b]: https://github.com/ucsd-cse130/wi26/blob/main/static/code/src/Lec_2_12_2026.hs
+[code9a]: https://github.com/ucsd-cse130/wi26/blob/main/static/code/src/Lec_3_3_2026.hs
+[code9b]: https://github.com/ucsd-cse130/wi26/blob/main/static/code/src/Lec_3_5_2026.hs
+[code10a]: https://github.com/ucsd-cse130/wi26/blob/main/static/code/src/Lec_3_10_2026.hs
+[code10b]: https://github.com/ucsd-cse130/wi26/blob/main/static/code/src/hello.hs
 [pdf-data]: /static/raw/03-datatypes.pdf
 [pdf-data-b]: /static/raw/03-datatypes-B.pdf
 [pdf-parse]: /static/raw/06-parsing.pdf
