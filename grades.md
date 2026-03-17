@@ -27,7 +27,7 @@ letter-sized sheet of paper (you can use both sides if you wish.)
 ### Final (30%)
 
 The closed-book, pencil-and-paper final exam will be held on
-**Tu 3/19** from 11:30a--2:30p.
+**Thu 3/19** from 11:30a--2:30p.
 
 ### Piazza (+5%)
 
